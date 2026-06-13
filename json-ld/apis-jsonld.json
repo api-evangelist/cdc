@@ -1,0 +1,96 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "hydra": "http://www.w3.org/ns/hydra/core#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dct": "http://purl.org/dc/terms/",
+    "skos": "http://www.w3.org/2004/02/skos/core#"
+  },
+  "@type": "WebAPI",
+  "@id": "https://raw.githubusercontent.com/api-evangelist/cdc/refs/heads/main/apis.yml",
+  "name": "CDC",
+  "description": "The US Centers for Disease Control and Prevention (CDC) provides a suite of public APIs for accessing disease surveillance data, vaccination rates, health statistics, environmental public health tracking, and public health datasets.",
+  "url": "https://open.cdc.gov/apis.html",
+  "provider": {
+    "@type": "Organization",
+    "name": "Centers for Disease Control and Prevention",
+    "url": "https://www.cdc.gov",
+    "sameAs": "https://github.com/CDCgov"
+  },
+  "documentation": "https://open.cdc.gov/apis.html",
+  "termsOfService": "https://www.cdc.gov/other/policies.html",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "CDC APIs",
+    "itemListElement": [
+      {
+        "@type": "WebAPI",
+        "name": "CDC Open Data API",
+        "description": "Repository of all available CDC datasets accessible via the Socrata Open Data API (SODA).",
+        "url": "https://data.cdc.gov",
+        "documentation": "https://dev.socrata.com/docs/endpoints.html",
+        "termsOfService": "https://www.cdc.gov/other/policies.html"
+      },
+      {
+        "@type": "WebAPI",
+        "name": "CDC WONDER API",
+        "description": "The CDC WONDER (Wide-ranging Online Data for Epidemiologic Research) API enables automated data queries in XML format over HTTP.",
+        "url": "https://wonder.cdc.gov",
+        "documentation": "https://wonder.cdc.gov/wonder/help/WONDER-API.html",
+        "termsOfService": "https://www.cdc.gov/other/policies.html"
+      },
+      {
+        "@type": "WebAPI",
+        "name": "CDC Environmental Public Health Tracking Network API",
+        "description": "Allows querying of data from the CDC National Environmental Public Health Tracking Network.",
+        "url": "https://ephtracking.cdc.gov",
+        "documentation": "https://ephtracking.cdc.gov/apihelp",
+        "termsOfService": "https://www.cdc.gov/other/policies.html"
+      },
+      {
+        "@type": "WebAPI",
+        "name": "CDC Content Syndication API",
+        "description": "Enables CDC to offer web content to other sites and applications.",
+        "url": "https://tools.cdc.gov/api/v2",
+        "documentation": "https://tools.cdc.gov/api/docs/info.aspx",
+        "termsOfService": "https://www.cdc.gov/other/policies.html"
+      },
+      {
+        "@type": "WebAPI",
+        "name": "PHIN VADS API",
+        "description": "The Public Health Information Network Vocabulary Access and Distribution System (PHIN VADS) REST API for accessing public health vocabularies.",
+        "url": "https://phinvads.cdc.gov/vocabService/v2",
+        "documentation": "https://phinvads.cdc.gov/vads/developersGuide.action",
+        "termsOfService": "https://www.cdc.gov/other/policies.html"
+      },
+      {
+        "@type": "WebAPI",
+        "name": "DIBBs eCR Refiner API",
+        "description": "CDC DIBBS electronic Case Reporting (eCR) refinement API for managing disease reporting configurations.",
+        "url": "https://github.com/CDCgov/dibbs-ecr-refiner",
+        "documentation": "https://github.com/CDCgov/dibbs-ecr-refiner"
+      },
+      {
+        "@type": "WebAPI",
+        "name": "DIBBs Query Connector API",
+        "description": "CDC DIBBS API for executing healthcare data queries against FHIR servers using patient identifiers.",
+        "url": "https://github.com/CDCgov/dibbs-query-connector",
+        "documentation": "https://github.com/CDCgov/dibbs-query-connector"
+      }
+    ]
+  },
+  "keywords": [
+    "Public Health",
+    "Disease Surveillance",
+    "Vaccination",
+    "Health Statistics",
+    "Government",
+    "Open Data",
+    "Environmental Health",
+    "Mortality",
+    "CDC WONDER"
+  ]
+}

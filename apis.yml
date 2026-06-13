@@ -138,6 +138,56 @@ apis:
       - FN: PHIN VADS Support
         email: phinvads@cdc.gov
 
+  - name: DIBBs eCR Refiner API
+    description: >-
+      CDC DIBBS (Data Integration Building Blocks) electronic Case Reporting
+      (eCR) Refiner API for managing disease reporting configurations with
+      customizable code sets. Supports creating and managing reportable
+      condition configurations, custom code management, eICR document
+      refinement and simulation, jurisdiction audit logs, and release tracking.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://github.com/CDCgov/dibbs-ecr-refiner
+    baseURL: https://github.com/CDCgov/dibbs-ecr-refiner
+    tags:
+      - Electronic Case Reporting
+      - eCR
+      - Disease Reporting
+      - Public Health
+      - DIBBS
+    properties:
+      - type: Documentation
+        url: https://github.com/CDCgov/dibbs-ecr-refiner
+      - type: OpenAPI
+        url: https://raw.githubusercontent.com/api-evangelist/cdc/refs/heads/main/openapi/dibbs-ecr-refiner-openapi.json
+    contact:
+      - FN: CDCgov DIBBS
+        url: https://github.com/CDCgov/dibbs-ecr-refiner
+
+  - name: DIBBs Query Connector API
+    description: >-
+      CDC DIBBS (Data Integration Building Blocks) Query Connector API for
+      executing healthcare data queries against FHIR servers using patient
+      identifiers. Accepts FHIR patient resources or HL7v2 messages and
+      returns matching FHIR resources from target FHIR servers.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://github.com/CDCgov/dibbs-query-connector
+    baseURL: https://github.com/CDCgov/dibbs-query-connector
+    tags:
+      - FHIR
+      - HL7
+      - Healthcare Data
+      - Patient Data
+      - Public Health
+      - DIBBS
+    properties:
+      - type: Documentation
+        url: https://github.com/CDCgov/dibbs-query-connector
+      - type: OpenAPI
+        url: https://raw.githubusercontent.com/api-evangelist/cdc/refs/heads/main/openapi/dibbs-query-connector-openapi.yaml
+    contact:
+      - FN: CDCgov DIBBS
+        url: https://github.com/CDCgov/dibbs-query-connector
+
 common:
   - type: Portal
     url: https://open.cdc.gov/apis.html
@@ -151,6 +201,8 @@ common:
     url: https://www.cdc.gov/other/privacy.html
   - type: Licensing
     url: https://www.cdc.gov/other/policies.html#linking
+  - type: JsonLD
+    url: https://raw.githubusercontent.com/api-evangelist/cdc/refs/heads/main/json-ld/apis-jsonld.json
 
 maintainers:
   - FN: Kin Lane
