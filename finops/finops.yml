@@ -1,0 +1,25 @@
+finops:
+  description: >-
+    All CDC public APIs are provided free of charge as a US federal government
+    service. There are no subscription fees, per-call charges, or tiered pricing
+    structures. The APIs are funded through federal appropriations and are
+    available to any public user without cost. This applies to data.cdc.gov
+    (Socrata SODA), CDC WONDER, the Environmental Public Health Tracking Network
+    API, Content Syndication, and PHIN VADS.
+  cost: $0
+  model: free government service
+  registration:
+    - name: Socrata App Token (optional)
+      description: >-
+        A free application token can be registered at dev.socrata.com to
+        increase throughput on data.cdc.gov from the shared throttled pool to
+        1,000 requests per rolling hour. No payment required.
+      url: https://support.socrata.com/hc/en-us/articles/210138558
+      cost: free
+  notes:
+    - CDC is a US government agency; all public data and APIs are in the public domain.
+    - No SLA or uptime guarantee is offered for free public access.
+    - High-volume users of data.cdc.gov Socrata API may request exceptions to
+      rate limits by contacting Socrata/CDC.
+    - The CDC WONDER system is maintained by CDC's National Center for Health
+      Statistics (NCHS).

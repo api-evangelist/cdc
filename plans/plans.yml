@@ -1,0 +1,18 @@
+plans:
+  - name: Free Public Access
+    description: >-
+      All CDC public APIs are freely available as a US government service. No
+      subscription fee is required to access CDC WONDER, the Open Data API
+      (data.cdc.gov via Socrata SODA), the Environmental Public Health Tracking
+      Network API, the Content Syndication API, or PHIN VADS. APIs are provided
+      as a public good with no cost.
+    type: free
+    url: https://open.cdc.gov/apis.html
+    features:
+      - Access to all CDC public datasets via Socrata SODA (data.cdc.gov)
+      - CDC WONDER XML API for epidemiologic databases
+      - Environmental Public Health Tracking Network API (JSON)
+      - Content Syndication API (JSON/XML)
+      - PHIN VADS vocabulary service (XML/REST)
+      - No registration required for basic unauthenticated access
+      - Optional app token registration for higher Socrata throughput

@@ -1,0 +1,37 @@
+rateLimits:
+  - api: CDC Open Data API (data.cdc.gov / Socrata SODA)
+    description: >-
+      Unauthenticated requests share a pool of throttled connections and will
+      eventually be rate-limited. Registering a free Socrata application token
+      grants up to 1,000 requests per rolling hour per token. Requests
+      determined to be abusive may be throttled regardless of token usage; a
+      429 HTTP status code is returned when throttling is applied. Higher limits
+      are available by request to Socrata/CDC.
+    unauthenticated:
+      requests: shared pool, throttled
+    authenticated:
+      requests: 1000
+      period: rolling hour
+      header: X-App-Token
+    overLimit: HTTP 429
+    url: https://dev.socrata.com/docs/app-tokens.html
+
+  - api: CDC WONDER API
+    description: >-
+      The CDC WONDER API is intended for automated query integration and has
+      no documented hard rate limit, but requests should be paced to avoid
+      overloading the server. No authentication is required. The API accepts
+      one XML POST request at a time and is designed for low-frequency
+      programmatic access rather than high-volume streaming.
+    unauthenticated:
+      requests: no hard limit documented; low-frequency use recommended
+    authentication: none required
+    url: https://wonder.cdc.gov/wonder/help/WONDER-API.html
+
+  - api: Environmental Public Health Tracking Network API
+    description: >-
+      No formal rate limit policy is publicly documented for this API. It is a
+      free public government API intended for research and public health
+      analysis use cases. Users should observe responsible usage patterns.
+    authentication: none required
+    url: https://ephtracking.cdc.gov/apihelp

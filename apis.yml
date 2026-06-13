@@ -1,0 +1,157 @@
+aid: cdc
+name: CDC
+description: >-
+  The US Centers for Disease Control and Prevention (CDC) provides a suite of
+  public APIs for accessing disease surveillance data, vaccination rates, health
+  statistics, environmental public health tracking, and public health datasets.
+  Key offerings include the CDC WONDER API for querying mortality and disease
+  databases, the Open Data API powered by Socrata for thousands of datasets
+  across categories such as flu vaccinations, STDs, injury, and NCHS statistics,
+  the Environmental Public Health Tracking Network API for environmental health
+  data, and the PHIN VADS vocabulary service for public health terminology.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/cdc/refs/heads/main/apis.yml
+created: "2026-06-13"
+modified: "2026-06-13"
+specificationVersion: "0.19"
+tags:
+  - Public Health
+  - Disease Surveillance
+  - Vaccination
+  - Health Statistics
+  - Government
+  - Open Data
+  - Environmental Health
+  - Mortality
+  - CDC WONDER
+apis:
+  - name: CDC Open Data API
+    description: >-
+      Repository of all available CDC datasets accessible via the Socrata Open
+      Data API (SODA). Covers categories including administrative data,
+      biomonitoring, child vaccinations, flu vaccinations, health statistics,
+      injury and violence, NCHS data, NNDSS reportable disease surveillance,
+      pregnancy and vaccination, STDs, smoking and tobacco use, traumatic brain
+      injury, and web metrics. Supports JSON, XML, and CSV response formats.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://data.cdc.gov
+    baseURL: https://data.cdc.gov/resource
+    tags:
+      - Open Data
+      - Health Statistics
+      - Disease Surveillance
+      - Vaccination
+    properties:
+      - type: Documentation
+        url: https://dev.socrata.com/docs/endpoints.html
+      - type: OpenAPI
+        url: https://data.cdc.gov/api/docs
+    contact:
+      - FN: CDC Open Data
+        email: info@cdc.gov
+
+  - name: CDC WONDER API
+    description: >-
+      The CDC WONDER (Wide-ranging Online Data for Epidemiologic Research) API
+      enables automated data queries in XML format over HTTP. Supports access
+      to online databases covering mortality, natality, cancer statistics,
+      AIDS/HIV, tuberculosis, sexually transmitted diseases, and environmental
+      health data. Requests are HTTP POST to the WONDER controller endpoint
+      with XML parameters; responses are returned as XML.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://wonder.cdc.gov
+    baseURL: https://wonder.cdc.gov/controller/datarequest
+    tags:
+      - Disease Surveillance
+      - Mortality
+      - Epidemiology
+      - Public Health
+    properties:
+      - type: Documentation
+        url: https://wonder.cdc.gov/wonder/help/WONDER-API.html
+    contact:
+      - FN: CDC WONDER
+        email: wonder@cdc.gov
+
+  - name: CDC Environmental Public Health Tracking Network API
+    description: >-
+      Allows querying of data from the CDC National Environmental Public Health
+      Tracking Network. Returns JSON-formatted responses covering environmental
+      health indicators such as air quality, water quality, climate data, and
+      their associations with health outcomes across the United States.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://ephtracking.cdc.gov
+    baseURL: https://ephtracking.cdc.gov/apigateway/api/v1
+    tags:
+      - Environmental Health
+      - Air Quality
+      - Water Quality
+      - Climate
+      - Public Health
+    properties:
+      - type: Documentation
+        url: https://ephtracking.cdc.gov/apihelp
+    contact:
+      - FN: CDC Tracking
+        email: trackingsupport@cdc.gov
+
+  - name: CDC Content Syndication API
+    description: >-
+      Enables CDC to offer web content to other sites and applications. Provides
+      structured access to CDC health content including articles, health topics,
+      media, and tools in JSON and XML formats for syndication to third-party
+      websites and public health information systems.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://tools.cdc.gov/api/docs/info.aspx
+    baseURL: https://tools.cdc.gov/api/v2
+    tags:
+      - Content
+      - Health Information
+      - Syndication
+    properties:
+      - type: Documentation
+        url: https://tools.cdc.gov/api/docs/info.aspx#response
+    contact:
+      - FN: CDC Digital Media
+        email: cdcinfo@cdc.gov
+
+  - name: PHIN VADS API
+    description: >-
+      The Public Health Information Network Vocabulary Access and Distribution
+      System (PHIN VADS) is a web-based enterprise vocabulary system for
+      accessing, searching, and distributing vocabularies used in public health
+      and clinical care practice. Provides REST access to standardized code
+      sets and value sets used in public health reporting.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://phinvads.cdc.gov
+    baseURL: https://phinvads.cdc.gov/vocabService/v2
+    tags:
+      - Vocabulary
+      - Terminology
+      - Standards
+      - Public Health
+    properties:
+      - type: Documentation
+        url: https://phinvads.cdc.gov/vads/developersGuide.action
+    contact:
+      - FN: PHIN VADS Support
+        email: phinvads@cdc.gov
+
+common:
+  - type: Portal
+    url: https://open.cdc.gov/apis.html
+  - type: GitHub
+    url: https://github.com/CDCgov
+  - type: Authentication
+    url: https://dev.socrata.com/docs/app-tokens.html
+  - type: TermsOfService
+    url: https://www.cdc.gov/other/policies.html
+  - type: PrivacyPolicy
+    url: https://www.cdc.gov/other/privacy.html
+  - type: Licensing
+    url: https://www.cdc.gov/other/policies.html#linking
+
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
