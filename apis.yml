@@ -201,7 +201,7 @@ common:
     url: https://www.cdc.gov/other/privacy.html
   - type: Licensing
     url: https://www.cdc.gov/other/policies.html#linking
-  - type: JsonLD
+  - type: JSONLD
     url: https://raw.githubusercontent.com/api-evangelist/cdc/refs/heads/main/json-ld/apis-jsonld.json
 
 maintainers:
