@@ -189,6 +189,8 @@ apis:
         url: https://github.com/CDCgov/dibbs-query-connector
 
 common:
+  - type: DomainSecurity
+    url: security/cdc-domain-security.yml
   - type: Portal
     url: https://open.cdc.gov/apis.html
   - type: GitHub
