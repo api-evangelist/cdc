@@ -1,0 +1,283 @@
+openapi: 3.1.0
+info:
+  title: DIBBs eCR Refiner app-notifications simulator API
+  description: 'Please visit the repo for more info: https://github.com/CDCgov/dibbs-ecr-refiner'
+  version: 1.0.0
+tags:
+- name: simulator
+paths:
+  /api/v1/simulator/discover-configurations:
+    post:
+      tags:
+      - simulator
+      summary: Discover Configurations
+      description: "Detects reportable conditions found in `uploaded_file` and matches them with existing configurations.\n\nConfigurations are returned to the client.\n\nArgs:\n    uploaded_file (UploadFile | None, optional): The eCR file package uploaded by the user.\n    simulator_zip_path (Path, optional): The path to the demo zip file.\n    user (DbUser, optional): The logged in user.\n    db (AsyncDatabaseConnection, optional): The database connection.\n    logger (Logger, optional): The app logger.\n\nReturns:\n    DiscoveredConfigurationsResponse: Matching configurations, grouped by condition."
+      operationId: discoverConfigurations
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Body_discoverConfigurations'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DiscoveredConfigurationsResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /api/v1/simulator/upload:
+    post:
+      tags:
+      - simulator
+      summary: Simulator Upload
+      description: "Handles the simulator upload workflow for eICR refinement.\n\nSteps:\n1. Obtain the simulator eICR ZIP file (either uploaded by user or from local sample in\n    refiner/assets/demo/mon-mothma-covid-influenza.zip).\n2. Read and validate the XML files (eICR and RR) from the ZIP (XMLFiles object).\n3. Call the service layer (`simulator`) to orchestrate the refinement workflow.\n4. For each unique reportable condition code found in the RR (and having a configuration),\n    build a refined XML document and collect metadata. The code used is the actual code\n    from the RR that triggered the match, not a canonical or database code.\n5. Package all refined and original files into a ZIP.\n6. Upload the ZIP to S3 and get a download URL.\n7. Construct and return the response model for the frontend, including per-condition\n    refinement results and a link to the ZIP of outputs.\n\nAny exceptions during file processing or workflow execution are caught and mapped to HTTP errors."
+      operationId: uploadEcr
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Body_uploadEcr'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SimulatorUploadResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /api/v1/simulator/download/{filename}:
+    get:
+      tags:
+      - simulator
+      summary: Download Refined Ecr
+      description: 'Stream refined eCR zip from S3 by filename.
+
+
+        The client provides only the filename (e.g. `<uuid>_refined_ecr.zip`). The
+
+        server constructs the S3 object key based on the authenticated user.'
+      operationId: downloadRefinedEcr
+      parameters:
+      - name: filename
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Filename
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+components:
+  schemas:
+    Body_uploadEcr:
+      properties:
+        body:
+          type: string
+          title: Body
+        uploaded_file:
+          anyOf:
+          - type: string
+            contentMediaType: application/octet-stream
+          - type: 'null'
+          title: Uploaded File
+      type: object
+      required:
+      - body
+      title: Body_uploadEcr
+    DiscoveredConfigurationsResponse:
+      properties:
+        sets:
+          items:
+            $ref: '#/components/schemas/DiscoveredConfigurationSet'
+          type: array
+          title: Sets
+      type: object
+      required:
+      - sets
+      title: DiscoveredConfigurationsResponse
+      description: Model to represent the sets of discovered configurations to return to the client.
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    Condition:
+      properties:
+        code:
+          type: string
+          title: Code
+        display_name:
+          type: string
+          title: Display Name
+        refined_eicr:
+          type: string
+          title: Refined Eicr
+        stats:
+          items:
+            type: string
+          type: array
+          title: Stats
+        render_diff:
+          type: boolean
+          title: Render Diff
+      type: object
+      required:
+      - code
+      - display_name
+      - refined_eicr
+      - stats
+      - render_diff
+      title: Condition
+      description: Model for a Condition.
+    DiscoveredConfigurationSet:
+      properties:
+        name:
+          type: string
+          title: Name
+        condition_id:
+          type: string
+          format: uuid
+          title: Condition Id
+        versions:
+          items:
+            $ref: '#/components/schemas/DiscoveredConfigurationVersion'
+          type: array
+          title: Versions
+      type: object
+      required:
+      - name
+      - condition_id
+      - versions
+      title: DiscoveredConfigurationSet
+      description: Model to represent a set of discovered configurations.
+    FileInfoResponse:
+      properties:
+        max_for_diff_rendering_mb:
+          type: integer
+          const: 2
+          title: Max For Diff Rendering Mb
+          default: 2
+        max_for_uncompressed_mb:
+          type: integer
+          const: 15
+          title: Max For Uncompressed Mb
+          default: 15
+      type: object
+      title: FileInfoResponse
+      description: Utility class to help Orval ship these values to the frontend.
+    Body_discoverConfigurations:
+      properties:
+        uploaded_file:
+          anyOf:
+          - type: string
+            contentMediaType: application/octet-stream
+          - type: 'null'
+          title: Uploaded File
+      type: object
+      title: Body_discoverConfigurations
+    DbConfigurationStatus:
+      type: string
+      enum:
+      - draft
+      - inactive
+      - active
+    DiscoveredConfigurationVersion:
+      properties:
+        id:
+          type: string
+          format: uuid
+          title: Id
+        version:
+          type: integer
+          title: Version
+        status:
+          $ref: '#/components/schemas/DbConfigurationStatus'
+      type: object
+      required:
+      - id
+      - version
+      - status
+      title: DiscoveredConfigurationVersion
+      description: Model to represent individual discovered configurations.
+    SimulatorUploadResponse:
+      properties:
+        message:
+          type: string
+          title: Message
+        refined_conditions_found:
+          type: integer
+          title: Refined Conditions Found
+        refined_conditions:
+          items:
+            $ref: '#/components/schemas/Condition'
+          type: array
+          title: Refined Conditions
+        unrefined_eicr:
+          type: string
+          title: Unrefined Eicr
+        refined_download_key:
+          type: string
+          title: Refined Download Key
+        file_info_response:
+          $ref: '#/components/schemas/FileInfoResponse'
+      type: object
+      required:
+      - message
+      - refined_conditions_found
+      - refined_conditions
+      - unrefined_eicr
+      - refined_download_key
+      - file_info_response
+      title: SimulatorUploadResponse
+      description: Model for the response when uploading a document in the simulate testing suite.

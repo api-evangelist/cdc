@@ -1,0 +1,16 @@
+openapi: 3.1.0
+info:
+  title: DIBBs eCR Refiner app-notifications Query Connector API OpenAPI 3.0 API
+  description: 'Please visit the repo for more info: https://github.com/CDCgov/dibbs-ecr-refiner'
+  version: 1.0.0
+tags:
+- name: Query Connector API OpenAPI 3.0
+paths:
+  /api:
+    get:
+      description: Returns the health status of the API
+      responses:
+        200:
+          description: Health check for Query Connector
+      tags:
+      - Query Connector API OpenAPI 3.0
