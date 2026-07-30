@@ -10,7 +10,19 @@ description: >-
   the Environmental Public Health Tracking Network API for environmental health
   data, and the PHIN VADS vocabulary service for public health terminology.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: free
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Free
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/cdc.png
 url: https://raw.githubusercontent.com/api-evangelist/cdc/refs/heads/main/apis.yml
 created: "2026-06-13"
 modified: "2026-06-13"
@@ -26,168 +38,247 @@ tags:
   - Mortality
   - CDC WONDER
 apis:
-  - name: CDC Open Data API
-    description: >-
-      Repository of all available CDC datasets accessible via the Socrata Open
-      Data API (SODA). Covers categories including administrative data,
-      biomonitoring, child vaccinations, flu vaccinations, health statistics,
-      injury and violence, NCHS data, NNDSS reportable disease surveillance,
-      pregnancy and vaccination, STDs, smoking and tobacco use, traumatic brain
-      injury, and web metrics. Supports JSON, XML, and CSV response formats.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://data.cdc.gov
-    baseURL: https://data.cdc.gov/resource
-    tags:
-      - Open Data
-      - Health Statistics
-      - Disease Surveillance
-      - Vaccination
-    properties:
-      - type: Documentation
-        url: https://dev.socrata.com/docs/endpoints.html
-      - type: OpenAPI
-        url: https://data.cdc.gov/api/docs
-    contact:
-      - FN: CDC Open Data
-        email: info@cdc.gov
-
-  - name: CDC WONDER API
-    description: >-
-      The CDC WONDER (Wide-ranging Online Data for Epidemiologic Research) API
-      enables automated data queries in XML format over HTTP. Supports access
-      to online databases covering mortality, natality, cancer statistics,
-      AIDS/HIV, tuberculosis, sexually transmitted diseases, and environmental
-      health data. Requests are HTTP POST to the WONDER controller endpoint
-      with XML parameters; responses are returned as XML.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://wonder.cdc.gov
-    baseURL: https://wonder.cdc.gov/controller/datarequest
-    tags:
-      - Disease Surveillance
-      - Mortality
-      - Epidemiology
-      - Public Health
-    properties:
-      - type: Documentation
-        url: https://wonder.cdc.gov/wonder/help/WONDER-API.html
-    contact:
-      - FN: CDC WONDER
-        email: wonder@cdc.gov
-
-  - name: CDC Environmental Public Health Tracking Network API
-    description: >-
-      Allows querying of data from the CDC National Environmental Public Health
-      Tracking Network. Returns JSON-formatted responses covering environmental
-      health indicators such as air quality, water quality, climate data, and
-      their associations with health outcomes across the United States.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://ephtracking.cdc.gov
-    baseURL: https://ephtracking.cdc.gov/apigateway/api/v1
-    tags:
-      - Environmental Health
-      - Air Quality
-      - Water Quality
-      - Climate
-      - Public Health
-    properties:
-      - type: Documentation
-        url: https://ephtracking.cdc.gov/apihelp
-    contact:
-      - FN: CDC Tracking
-        email: trackingsupport@cdc.gov
-
-  - name: CDC Content Syndication API
-    description: >-
-      Enables CDC to offer web content to other sites and applications. Provides
-      structured access to CDC health content including articles, health topics,
-      media, and tools in JSON and XML formats for syndication to third-party
-      websites and public health information systems.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://tools.cdc.gov/api/docs/info.aspx
-    baseURL: https://tools.cdc.gov/api/v2
-    tags:
-      - Content
-      - Health Information
-      - Syndication
-    properties:
-      - type: Documentation
-        url: https://tools.cdc.gov/api/docs/info.aspx#response
-    contact:
-      - FN: CDC Digital Media
-        email: cdcinfo@cdc.gov
-
-  - name: PHIN VADS API
-    description: >-
-      The Public Health Information Network Vocabulary Access and Distribution
-      System (PHIN VADS) is a web-based enterprise vocabulary system for
-      accessing, searching, and distributing vocabularies used in public health
-      and clinical care practice. Provides REST access to standardized code
-      sets and value sets used in public health reporting.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://phinvads.cdc.gov
-    baseURL: https://phinvads.cdc.gov/vocabService/v2
-    tags:
-      - Vocabulary
-      - Terminology
-      - Standards
-      - Public Health
-    properties:
-      - type: Documentation
-        url: https://phinvads.cdc.gov/vads/developersGuide.action
-    contact:
-      - FN: PHIN VADS Support
-        email: phinvads@cdc.gov
-
-  - name: DIBBs eCR Refiner API
-    description: >-
-      CDC DIBBS (Data Integration Building Blocks) electronic Case Reporting
-      (eCR) Refiner API for managing disease reporting configurations with
-      customizable code sets. Supports creating and managing reportable
-      condition configurations, custom code management, eICR document
-      refinement and simulation, jurisdiction audit logs, and release tracking.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://github.com/CDCgov/dibbs-ecr-refiner
-    baseURL: https://github.com/CDCgov/dibbs-ecr-refiner
-    tags:
-      - Electronic Case Reporting
-      - eCR
-      - Disease Reporting
-      - Public Health
-      - DIBBS
-    properties:
-      - type: Documentation
-        url: https://github.com/CDCgov/dibbs-ecr-refiner
-      - type: OpenAPI
-        url: https://raw.githubusercontent.com/api-evangelist/cdc/refs/heads/main/openapi/dibbs-ecr-refiner-openapi.json
-    contact:
-      - FN: CDCgov DIBBS
-        url: https://github.com/CDCgov/dibbs-ecr-refiner
-
-  - name: DIBBs Query Connector API
-    description: >-
-      CDC DIBBS (Data Integration Building Blocks) Query Connector API for
-      executing healthcare data queries against FHIR servers using patient
-      identifiers. Accepts FHIR patient resources or HL7v2 messages and
-      returns matching FHIR resources from target FHIR servers.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://github.com/CDCgov/dibbs-query-connector
-    baseURL: https://github.com/CDCgov/dibbs-query-connector
-    tags:
-      - FHIR
-      - HL7
-      - Healthcare Data
-      - Patient Data
-      - Public Health
-      - DIBBS
-    properties:
-      - type: Documentation
-        url: https://github.com/CDCgov/dibbs-query-connector
-      - type: OpenAPI
-        url: https://raw.githubusercontent.com/api-evangelist/cdc/refs/heads/main/openapi/dibbs-query-connector-openapi.yaml
-    contact:
-      - FN: CDCgov DIBBS
-        url: https://github.com/CDCgov/dibbs-query-connector
-
+- name: CDC WONDER API
+  description: >-
+    The CDC WONDER (Wide-ranging Online Data for Epidemiologic Research) API enables automated data queries
+    in XML format over HTTP. Supports access to online databases covering mortality, natality, cancer
+    statistics, AIDS/HIV, tuberculosis, sexually transmitted diseases, and environmental health data.
+    Requests are HTTP POST to the WONDER controller endpoint with XML parameters; responses are returned
+    as XML.
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://wonder.cdc.gov
+  baseURL: https://wonder.cdc.gov/controller/datarequest
+  tags:
+  - Disease Surveillance
+  - Mortality
+  - Epidemiology
+  - Public Health
+  properties:
+  - type: Documentation
+    url: https://wonder.cdc.gov/wonder/help/WONDER-API.html
+  contact:
+  - FN: CDC WONDER
+    email: wonder@cdc.gov
+- name: CDC Environmental Public Health Tracking Network API
+  description: >-
+    Allows querying of data from the CDC National Environmental Public Health Tracking Network. Returns
+    JSON-formatted responses covering environmental health indicators such as air quality, water quality,
+    climate data, and their associations with health outcomes across the United States.
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://ephtracking.cdc.gov
+  baseURL: https://ephtracking.cdc.gov/apigateway/api/v1
+  tags:
+  - Environmental Health
+  - Air Quality
+  - Water Quality
+  - Climate
+  - Public Health
+  properties:
+  - type: Documentation
+    url: https://ephtracking.cdc.gov/apihelp
+  contact:
+  - FN: CDC Tracking
+    email: trackingsupport@cdc.gov
+- name: CDC Content Syndication API
+  description: >-
+    Enables CDC to offer web content to other sites and applications. Provides structured access to CDC
+    health content including articles, health topics, media, and tools in JSON and XML formats for syndication
+    to third-party websites and public health information systems.
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://tools.cdc.gov/api/docs/info.aspx
+  baseURL: https://tools.cdc.gov/api/v2
+  tags:
+  - Content
+  - Health Information
+  - Syndication
+  properties:
+  - type: Documentation
+    url: https://tools.cdc.gov/api/docs/info.aspx#response
+  contact:
+  - FN: CDC Digital Media
+    email: cdcinfo@cdc.gov
+- name: PHIN VADS API
+  description: >-
+    The Public Health Information Network Vocabulary Access and Distribution System (PHIN VADS) is a web-based
+    enterprise vocabulary system for accessing, searching, and distributing vocabularies used in public
+    health and clinical care practice. Provides REST access to standardized code sets and value sets used
+    in public health reporting.
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://phinvads.cdc.gov
+  baseURL: https://phinvads.cdc.gov/vocabService/v2
+  tags:
+  - Vocabulary
+  - Terminology
+  - Standards
+  - Public Health
+  properties:
+  - type: Documentation
+    url: https://phinvads.cdc.gov/vads/developersGuide.action
+  contact:
+  - FN: PHIN VADS Support
+    email: phinvads@cdc.gov
+- aid: cdc:cdc-app-notifications-api
+  name: CDC app-notifications API
+  description: The app-notifications API from CDC — 1 operation(s) for app-notifications.
+  humanURL: https://data.cdc.gov
+  baseURL: https://data.cdc.gov/resource
+  tags:
+  - app-notifications
+  properties:
+  - type: OpenAPI
+    url: openapi/cdc-app-notifications-api-openapi.yml
+  - type: Documentation
+    url: https://dev.socrata.com/docs/endpoints.html
+  - type: Documentation
+    url: https://github.com/CDCgov/dibbs-ecr-refiner
+  - type: Documentation
+    url: https://github.com/CDCgov/dibbs-query-connector
+- aid: cdc:cdc-code-systems-api
+  name: CDC code-systems API
+  description: The code-systems API from CDC — 1 operation(s) for code-systems.
+  humanURL: https://data.cdc.gov
+  baseURL: https://data.cdc.gov/resource
+  tags:
+  - code-systems
+  properties:
+  - type: OpenAPI
+    url: openapi/cdc-code-systems-api-openapi.yml
+  - type: Documentation
+    url: https://dev.socrata.com/docs/endpoints.html
+  - type: Documentation
+    url: https://github.com/CDCgov/dibbs-ecr-refiner
+  - type: Documentation
+    url: https://github.com/CDCgov/dibbs-query-connector
+- aid: cdc:cdc-conditions-api
+  name: CDC conditions API
+  description: The conditions API from CDC — 2 operation(s) for conditions.
+  humanURL: https://data.cdc.gov
+  baseURL: https://data.cdc.gov/resource
+  tags:
+  - conditions
+  properties:
+  - type: OpenAPI
+    url: openapi/cdc-conditions-api-openapi.yml
+  - type: Documentation
+    url: https://dev.socrata.com/docs/endpoints.html
+  - type: Documentation
+    url: https://github.com/CDCgov/dibbs-ecr-refiner
+  - type: Documentation
+    url: https://github.com/CDCgov/dibbs-query-connector
+- aid: cdc:cdc-configurations-api
+  name: CDC configurations API
+  description: The configurations API from CDC — 15 operation(s) for configurations.
+  humanURL: https://data.cdc.gov
+  baseURL: https://data.cdc.gov/resource
+  tags:
+  - configurations
+  properties:
+  - type: OpenAPI
+    url: openapi/cdc-configurations-api-openapi.yml
+  - type: Documentation
+    url: https://dev.socrata.com/docs/endpoints.html
+  - type: Documentation
+    url: https://github.com/CDCgov/dibbs-ecr-refiner
+  - type: Documentation
+    url: https://github.com/CDCgov/dibbs-query-connector
+- aid: cdc:cdc-events-api
+  name: CDC events API
+  description: The events API from CDC — 2 operation(s) for events.
+  humanURL: https://data.cdc.gov
+  baseURL: https://data.cdc.gov/resource
+  tags:
+  - events
+  properties:
+  - type: OpenAPI
+    url: openapi/cdc-events-api-openapi.yml
+  - type: Documentation
+    url: https://dev.socrata.com/docs/endpoints.html
+  - type: Documentation
+    url: https://github.com/CDCgov/dibbs-ecr-refiner
+  - type: Documentation
+    url: https://github.com/CDCgov/dibbs-query-connector
+- aid: cdc:cdc-query-api
+  name: CDC Query API
+  description: The Query API from CDC — 1 operation(s) for query.
+  humanURL: https://data.cdc.gov
+  baseURL: https://data.cdc.gov/resource
+  tags:
+  - Query
+  properties:
+  - type: OpenAPI
+    url: openapi/cdc-query-api-openapi.yml
+  - type: Documentation
+    url: https://dev.socrata.com/docs/endpoints.html
+  - type: Documentation
+    url: https://github.com/CDCgov/dibbs-ecr-refiner
+  - type: Documentation
+    url: https://github.com/CDCgov/dibbs-query-connector
+- aid: cdc:cdc-query-connector-api-openapi-3-0-api
+  name: CDC Query Connector API OpenAPI 3.0 API
+  description: >-
+    The Query Connector API OpenAPI 3.0 API from CDC — 1 operation(s) for query connector api openapi
+    3.0.
+  humanURL: https://data.cdc.gov
+  baseURL: https://data.cdc.gov/resource
+  tags:
+  - Query Connector API OpenAPI 3.0
+  properties:
+  - type: OpenAPI
+    url: openapi/cdc-query-connector-api-openapi-3-0-api-openapi.yml
+  - type: Documentation
+    url: https://dev.socrata.com/docs/endpoints.html
+  - type: Documentation
+    url: https://github.com/CDCgov/dibbs-ecr-refiner
+  - type: Documentation
+    url: https://github.com/CDCgov/dibbs-query-connector
+- aid: cdc:cdc-releases-api
+  name: CDC releases API
+  description: The releases API from CDC — 1 operation(s) for releases.
+  humanURL: https://data.cdc.gov
+  baseURL: https://data.cdc.gov/resource
+  tags:
+  - releases
+  properties:
+  - type: OpenAPI
+    url: openapi/cdc-releases-api-openapi.yml
+  - type: Documentation
+    url: https://dev.socrata.com/docs/endpoints.html
+  - type: Documentation
+    url: https://github.com/CDCgov/dibbs-ecr-refiner
+  - type: Documentation
+    url: https://github.com/CDCgov/dibbs-query-connector
+- aid: cdc:cdc-simulator-api
+  name: CDC simulator API
+  description: The simulator API from CDC — 3 operation(s) for simulator.
+  humanURL: https://data.cdc.gov
+  baseURL: https://data.cdc.gov/resource
+  tags:
+  - simulator
+  properties:
+  - type: OpenAPI
+    url: openapi/cdc-simulator-api-openapi.yml
+  - type: Documentation
+    url: https://dev.socrata.com/docs/endpoints.html
+  - type: Documentation
+    url: https://github.com/CDCgov/dibbs-ecr-refiner
+  - type: Documentation
+    url: https://github.com/CDCgov/dibbs-query-connector
+- aid: cdc:cdc-user-api
+  name: CDC user API
+  description: The user API from CDC — 1 operation(s) for user.
+  humanURL: https://data.cdc.gov
+  baseURL: https://data.cdc.gov/resource
+  tags:
+  - user
+  properties:
+  - type: OpenAPI
+    url: openapi/cdc-user-api-openapi.yml
+  - type: Documentation
+    url: https://dev.socrata.com/docs/endpoints.html
+  - type: Documentation
+    url: https://github.com/CDCgov/dibbs-ecr-refiner
+  - type: Documentation
+    url: https://github.com/CDCgov/dibbs-query-connector
 common:
   - type: AgenticAccess
     url: agentic-access/cdc-agentic-access.yml
