@@ -1,0 +1,32 @@
+{
+  "provider": "cdc",
+  "sources": [
+    "cdc-app-notifications-api-openapi.yml",
+    "cdc-code-systems-api-openapi.yml",
+    "cdc-conditions-api-openapi.yml",
+    "cdc-configurations-api-openapi.yml",
+    "cdc-events-api-openapi.yml",
+    "cdc-query-api-openapi.yml",
+    "cdc-query-connector-api-openapi-3-0-api-openapi.yml",
+    "cdc-releases-api-openapi.yml",
+    "cdc-simulator-api-openapi.yml",
+    "cdc-user-api-openapi.yml"
+  ],
+  "outputs": [
+    "cdc-app-notifications-api-openapi.yml",
+    "cdc-code-systems-api-openapi.yml",
+    "cdc-conditions-api-openapi.yml",
+    "cdc-configurations-api-openapi.yml",
+    "cdc-events-api-openapi.yml",
+    "cdc-query-api-openapi.yml",
+    "cdc-query-connector-api-openapi-3-0-api-openapi.yml",
+    "cdc-releases-api-openapi.yml",
+    "cdc-simulator-api-openapi.yml",
+    "cdc-user-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
