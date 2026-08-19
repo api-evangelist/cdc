@@ -1,0 +1,108 @@
+{
+  "item": [
+    {
+      "id": "af6d1061-0e70-4366-9702-1b3f118ca131",
+      "name": "releases",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0a0338f7-28c5-472f-91c9-7ed5679516fb",
+          "name": "Get Releases Data",
+          "request": {
+            "name": "Get Releases Data",
+            "description": {
+              "content": "Hook to get release data from GitHub and serve it to the frontend.\n\nReturns:\n    ReleasesResponse: Reponse of release information in a list of ReleaseMetadata",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "releases",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "18e265c6-7b81-4e88-a8b8-3c166248b6ac",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "releases",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"releases\": [\n    {\n      \"id\": \"string\",\n      \"created_at\": \"1948-11-07T14:03:40.367Z\",\n      \"name\": \"string\",\n      \"release_notes\": [\n        {\n          \"id\": \"string\",\n          \"header\": \"string\",\n          \"content\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"header\": \"string\",\n          \"content\": \"string\"\n        }\n      ],\n      \"prerelease\": true,\n      \"url\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"created_at\": \"1978-11-23T05:12:17.658Z\",\n      \"name\": \"string\",\n      \"release_notes\": [\n        {\n          \"id\": \"string\",\n          \"header\": \"string\",\n          \"content\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"header\": \"string\",\n          \"content\": \"string\"\n        }\n      ],\n      \"prerelease\": true,\n      \"url\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "437f46b7-6c41-40c3-b60e-3d15695445dc",
+    "name": "DIBBs eCR Refiner app-notifications releases API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Please visit the repo for more info: https://github.com/CDCgov/dibbs-ecr-refiner",
+      "type": "text/plain"
+    }
+  }
+}

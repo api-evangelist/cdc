@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DIBBs eCR Refiner app-notifications user API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "user",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get User",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/user"
+          },
+          "docs": "Returns the current logged-in user's information.\n\nReads user info from the session or token.\n\nReturns:\n    JSON object with user claims if authenticated.\n\nRaises:\n    HTTPException 401 if user not authenticated."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

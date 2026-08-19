@@ -1,0 +1,59 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DIBBs eCR Refiner app-notifications events API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "events",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/events/",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "canonical_url",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a list of all events for a jurisdiction, ordered from newest to oldest.\n\nArgs:\n    user (DbUser): The user making the request.\n    db (AsyncDatabaseConnection): Database connection.\n    logger (Logger): Standard logger.\n    page (int): page of events to return to the client.\n    canonical_url (str | None): An optional filter on the condition.\n\nReturns:\n    EventResponse: A bundle with\n        - Total page count\n        - The list of AuditEvents relevant for the (optional) filter\n        "
+        },
+        {
+          "info": {
+            "name": "Get Custom Code Upload Events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/events/:event_id/custom-code-uploads",
+            "params": [
+              {
+                "name": "event_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns a list of all custom code upload events associated with a parent event ID.\n\nArgs:\n    event_id (UUID): The parent event\n    user (DbUser): The logged in user\n    db (AsyncDatabaseConnection): The database connection\n\nRaises:\n    HTTPException: 404 if event with requested ID is not found or does not belong to user's jurisdiction"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

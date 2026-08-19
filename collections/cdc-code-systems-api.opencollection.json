@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DIBBs eCR Refiner app-notifications code-systems API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "code-systems",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Code Systems",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/code-systems/"
+          },
+          "docs": "Returns a list of supported code systems.\n\nReturns:\n    List of code system."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

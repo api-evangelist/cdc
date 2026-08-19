@@ -1,0 +1,316 @@
+{
+  "item": [
+    {
+      "id": "5dacc102-55dc-4256-ae8e-2baae8b86532",
+      "name": "events",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4e4af445-98eb-4b9b-828f-d8a0cf3f6f07",
+          "name": "Get Events",
+          "request": {
+            "name": "Get Events",
+            "description": {
+              "content": "Returns a list of all events for a jurisdiction, ordered from newest to oldest.\n\nArgs:\n    user (DbUser): The user making the request.\n    db (AsyncDatabaseConnection): Database connection.\n    logger (Logger): Standard logger.\n    page (int): page of events to return to the client.\n    canonical_url (str | None): An optional filter on the condition.\n\nReturns:\n    EventResponse: A bundle with\n        - Total page count\n        - The list of AuditEvents relevant for the (optional) filter\n        - The list of condition information with potentially filter-able data",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "events",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "canonical_url",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b7d1dd1d-3a5b-4b8a-9a81-95444cc096ba",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "events",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "canonical_url",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"audit_events\": [\n    {\n      \"id\": \"8d2d7485-c746-5e91-a43c-04a3860951fa\",\n      \"username\": \"string\",\n      \"configuration_name\": \"string\",\n      \"configuration_version\": 8919,\n      \"condition_id\": \"d9c0d2ca-2d4f-043b-b60c-695774c3991c\",\n      \"action_text\": \"string\",\n      \"created_at\": \"1981-10-24T11:28:32.842Z\",\n      \"has_custom_code_upload_events\": true\n    },\n    {\n      \"id\": \"be1174f5-8ac2-5005-b191-7dbe521979bf\",\n      \"username\": \"string\",\n      \"configuration_name\": \"string\",\n      \"configuration_version\": 3492,\n      \"condition_id\": \"46b38c2c-20a0-585b-ca21-71e20b2de47f\",\n      \"action_text\": \"string\",\n      \"created_at\": \"1984-01-22T02:05:03.742Z\",\n      \"has_custom_code_upload_events\": false\n    }\n  ],\n  \"configuration_options\": [\n    {\n      \"id\": \"d1d86c16-fdd7-a085-54da-9c82a8138cab\",\n      \"name\": \"string\",\n      \"canonical_url\": \"string\"\n    },\n    {\n      \"id\": \"74919c9d-d9f9-94f4-5320-66bb343d78dd\",\n      \"name\": \"string\",\n      \"canonical_url\": \"string\"\n    }\n  ],\n  \"total_pages\": 5623\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e5663894-dec7-4d45-a170-6caaabb16c96",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "events",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "canonical_url",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "55a4019c-c36d-41bc-a3df-394bb14afd6f",
+          "name": "Get Custom Code Upload Events",
+          "request": {
+            "name": "Get Custom Code Upload Events",
+            "description": {
+              "content": "Returns a list of all custom code upload events associated with a parent event ID.\n\nArgs:\n    event_id (UUID): The parent event\n    user (DbUser): The logged in user\n    db (AsyncDatabaseConnection): The database connection\n\nRaises:\n    HTTPException: 404 if event with requested ID is not found or does not belong to user's jurisdiction",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "events",
+                ":event_id",
+                "custom-code-uploads"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "event_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d79fb55d-0d36-42e5-b8ee-db2c93b2c4d2",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "events",
+                    ":event_id",
+                    "custom-code-uploads"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "event_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"2a1af04a-29d5-cbf0-974d-55c633cff8d9\",\n    \"system_display_name\": \"string\",\n    \"code\": \"string\",\n    \"name\": \"string\"\n  },\n  {\n    \"id\": \"1dc62414-360b-fd4a-2d98-59e145ba86b9\",\n    \"system_display_name\": \"string\",\n    \"code\": \"string\",\n    \"name\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fd902418-432d-478a-a764-e880ff904ed1",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "events",
+                    ":event_id",
+                    "custom-code-uploads"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "event_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "52778a02-0223-423a-a90d-9c8e85ce4528",
+    "name": "DIBBs eCR Refiner app-notifications events API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Please visit the repo for more info: https://github.com/CDCgov/dibbs-ecr-refiner",
+      "type": "text/plain"
+    }
+  }
+}

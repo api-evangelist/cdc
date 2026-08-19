@@ -1,0 +1,246 @@
+{
+  "item": [
+    {
+      "id": "4ff5a42c-d3a5-41f8-9074-cf185e2d6cf9",
+      "name": "conditions",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2f5d8128-67d8-4b9d-a40a-aec8ff12e0a3",
+          "name": "Get Conditions",
+          "request": {
+            "name": "Get Conditions",
+            "description": {
+              "content": "Fetches all available conditions from the database.\n\nArgs:\n    db (AsyncDatabaseConnection): Database connection.\n\nReturns:\n    list[Condition]: List of all conditions.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "conditions",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e9b84441-3024-4041-9d4c-a6d465a9fde7",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "conditions",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"c4a1b57f-1745-3ed0-0643-fabd8f6ae34d\",\n    \"display_name\": \"string\"\n  },\n  {\n    \"id\": \"dee9af45-2fbe-5e0c-0ff3-6d3f0cfd3c9b\",\n    \"display_name\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f4b1a9e6-94cd-475d-923d-20180856d115",
+          "name": "Get Condition",
+          "request": {
+            "name": "Get Condition",
+            "description": {
+              "content": "Returns information about a given condition.\n\nArgs:\n    condition_id (UUID): ID of the condition\n    db (AsyncDatabaseConnection): Database connection.\n\nRaises:\n    HTTPException: 404 if no condition is found\n\nReturns:\n    GetCondition: Info about the condition",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "conditions",
+                ":condition_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "condition_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9a116d85-d2b4-4a68-8ce7-f568e375c13f",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "conditions",
+                    ":condition_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "condition_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"061a9e43-c844-0ae1-269f-2a04ae87c76c\",\n  \"display_name\": \"string\",\n  \"completeness_status\": {\n    \"code_set_status\": \"partially complete\",\n    \"code_category_statuses\": [\n      {\n        \"category\": \"string\",\n        \"name\": \"string\",\n        \"completeness\": \"fully complete\"\n      },\n      {\n        \"category\": \"string\",\n        \"name\": \"string\",\n        \"completeness\": \"not included\"\n      }\n    ]\n  },\n  \"codes\": [\n    {\n      \"code\": \"string\",\n      \"system\": \"string\",\n      \"description\": \"string\"\n    },\n    {\n      \"code\": \"string\",\n      \"system\": \"string\",\n      \"description\": \"string\"\n    }\n  ],\n  \"systems\": [\n    {\n      \"id\": \"4fdfe13b-463a-64ba-c00b-dc8eb931ce76\",\n      \"key\": \"string\",\n      \"display_name\": \"string\",\n      \"oid\": \"string\"\n    },\n    {\n      \"id\": \"c0b70112-319d-359e-369a-87a67828eb19\",\n      \"key\": \"string\",\n      \"display_name\": \"string\",\n      \"oid\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "87ec2e90-ebaa-4e03-8467-40e496db4134",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "conditions",
+                    ":condition_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "condition_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "40df6940-fa04-4506-8ea0-5df72ce20eb6",
+    "name": "DIBBs eCR Refiner app-notifications conditions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Please visit the repo for more info: https://github.com/CDCgov/dibbs-ecr-refiner",
+      "type": "text/plain"
+    }
+  }
+}

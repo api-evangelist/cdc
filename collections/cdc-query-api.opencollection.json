@@ -1,0 +1,108 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DIBBs eCR Refiner app-notifications Query API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Query",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GET /api/query",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/query",
+            "params": [
+              {
+                "name": "fhir_server",
+                "value": "",
+                "type": "query",
+                "description": "Name of the FHIR server to query"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "query",
+                "description": "ID of the query to use"
+              },
+              {
+                "name": "given",
+                "value": "",
+                "type": "query",
+                "description": "Patient given name. At least one of the patient identifier params are required"
+              },
+              {
+                "name": "family",
+                "value": "",
+                "type": "query",
+                "description": "Patient family name. At least one of the patient identifier params are required"
+              },
+              {
+                "name": "dob",
+                "value": "",
+                "type": "query",
+                "description": "Patient date of birth in YYYY-MM-DD format. At least one of the patient identifier params are required"
+              },
+              {
+                "name": "mrn",
+                "value": "",
+                "type": "query",
+                "description": "Patient medical record number. At least one of the patient identifier params are required"
+              },
+              {
+                "name": "phone",
+                "value": "",
+                "type": "query",
+                "description": "Patient phone number. At least one of the patient identifier params are required"
+              }
+            ]
+          },
+          "docs": "A GET endpoint that accepts a series of query parameters to execute a query within the Query Connector. At least one of the patient identifier params are required"
+        },
+        {
+          "info": {
+            "name": "POST /api/query",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/query",
+            "params": [
+              {
+                "name": "fhir_server",
+                "value": "",
+                "type": "query",
+                "description": "Name of the FHIR server to query"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "query",
+                "description": "ID of the query to use"
+              },
+              {
+                "name": "message_format",
+                "value": "",
+                "type": "query",
+                "description": "Whether the request body contents are HL7 or FHIR formatted messages"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "A POST endpoint that accepts a FHIR patient resource or an HL7v2 message in the request body to execute a query within the Query Connector"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

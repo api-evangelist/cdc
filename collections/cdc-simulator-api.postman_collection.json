@@ -1,0 +1,507 @@
+{
+  "item": [
+    {
+      "id": "1fbf8ebe-994e-4040-bb1e-5fe76ce0ef2d",
+      "name": "simulator",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3fe90271-5170-47cb-b84c-0be13a85a876",
+          "name": "Discover Configurations",
+          "request": {
+            "name": "Discover Configurations",
+            "description": {
+              "content": "Detects reportable conditions found in `uploaded_file` and matches them with existing configurations.\n\nConfigurations are returned to the client.\n\nArgs:\n    uploaded_file (UploadFile | None, optional): The eCR file package uploaded by the user.\n    simulator_zip_path (Path, optional): The path to the demo zip file.\n    user (DbUser, optional): The logged in user.\n    db (AsyncDatabaseConnection, optional): The database connection.\n    logger (Logger, optional): The app logger.\n\nReturns:\n    DiscoveredConfigurationsResponse: Matching configurations, grouped by condition.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "simulator",
+                "discover-configurations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "uploaded_file",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": ""
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "561c6ed6-5418-4477-97d2-c78379e117a2",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "simulator",
+                    "discover-configurations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "uploaded_file",
+                      "value": "<string>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"sets\": [\n    {\n      \"name\": \"string\",\n      \"condition_id\": \"1e9fa9ac-a43b-a98b-c459-b20bc66201bd\",\n      \"versions\": [\n        {\n          \"id\": \"0ed1b668-5d5a-ffb3-7a07-64a373d9d6d1\",\n          \"version\": 9906,\n          \"status\": \"inactive\"\n        },\n        {\n          \"id\": \"16725768-a36d-4c4b-75e6-fe1f7a5d3703\",\n          \"version\": 9517,\n          \"status\": \"active\"\n        }\n      ]\n    },\n    {\n      \"name\": \"string\",\n      \"condition_id\": \"ca0247ca-19af-fdf0-d8e7-09047f5057fe\",\n      \"versions\": [\n        {\n          \"id\": \"9604fd7b-5e4b-f5a9-6002-7562f5533800\",\n          \"version\": 5783,\n          \"status\": \"inactive\"\n        },\n        {\n          \"id\": \"7abb2e29-e25c-5fd5-e428-3dc6de8c392a\",\n          \"version\": 7492,\n          \"status\": \"draft\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "762173c1-132e-48ea-b3b2-f8a0f292aefd",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "simulator",
+                    "discover-configurations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "uploaded_file",
+                      "value": "<string>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "67886bb2-3311-4c28-9ca5-00a4a7b33b60",
+          "name": "Simulator Upload",
+          "request": {
+            "name": "Simulator Upload",
+            "description": {
+              "content": "Handles the simulator upload workflow for eICR refinement.\n\nSteps:\n1. Obtain the simulator eICR ZIP file (either uploaded by user or from local sample in\n    refiner/assets/demo/mon-mothma-covid-influenza.zip).\n2. Read and validate the XML files (eICR and RR) from the ZIP (XMLFiles object).\n3. Call the service layer (`simulator`) to orchestrate the refinement workflow.\n4. For each unique reportable condition code found in the RR (and having a configuration),\n    build a refined XML document and collect metadata. The code used is the actual code\n    from the RR that triggered the match, not a canonical or database code.\n5. Package all refined and original files into a ZIP.\n6. Upload the ZIP to S3 and get a download URL.\n7. Construct and return the response model for the frontend, including per-condition\n    refinement results and a link to the ZIP of outputs.\n\nAny exceptions during file processing or workflow execution are caught and mapped to HTTP errors.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "simulator",
+                "upload"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "body",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "(Required) "
+                },
+                {
+                  "key": "uploaded_file",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": ""
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e5aa9bb9-0b73-4b87-999c-4fd9f0e331c6",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "simulator",
+                    "upload"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "body",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "uploaded_file",
+                      "value": "<string>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"refined_conditions_found\": 6263,\n  \"refined_conditions\": [\n    {\n      \"code\": \"string\",\n      \"display_name\": \"string\",\n      \"refined_eicr\": \"string\",\n      \"stats\": [\n        \"string\",\n        \"string\"\n      ],\n      \"render_diff\": true\n    },\n    {\n      \"code\": \"string\",\n      \"display_name\": \"string\",\n      \"refined_eicr\": \"string\",\n      \"stats\": [\n        \"string\",\n        \"string\"\n      ],\n      \"render_diff\": true\n    }\n  ],\n  \"unrefined_eicr\": \"string\",\n  \"refined_download_key\": \"string\",\n  \"file_info_response\": {\n    \"max_for_diff_rendering_mb\": 2,\n    \"max_for_uncompressed_mb\": 15\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a2a2dd31-47ba-411b-8a31-06f432029442",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "simulator",
+                    "upload"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "body",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "uploaded_file",
+                      "value": "<string>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "076d82de-5d7f-4b6a-b0ec-dbb7f684aff1",
+          "name": "Download Refined Ecr",
+          "request": {
+            "name": "Download Refined Ecr",
+            "description": {
+              "content": "Stream refined eCR zip from S3 by filename.\n\nThe client provides only the filename (e.g. `<uuid>_refined_ecr.zip`). The\nserver constructs the S3 object key based on the authenticated user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "simulator",
+                "download",
+                ":filename"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "filename",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "09d24303-444b-48cb-a421-ffb536e1cbd6",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "simulator",
+                    "download",
+                    ":filename"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "filename",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "707aa2ec-d145-4301-abdf-b3b79d40be66",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "simulator",
+                    "download",
+                    ":filename"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "filename",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "e2e7a10a-b8c7-43a5-a69d-1d2880827dc7",
+    "name": "DIBBs eCR Refiner app-notifications simulator API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Please visit the repo for more info: https://github.com/CDCgov/dibbs-ecr-refiner",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "item": [
+    {
+      "id": "5b2577e8-baa1-421b-bee6-22a77ea7e71e",
+      "name": "code-systems",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b2445596-ac5f-43e0-ae75-f54ebce8752c",
+          "name": "Get Code Systems",
+          "request": {
+            "name": "Get Code Systems",
+            "description": {
+              "content": "Returns a list of supported code systems.\n\nReturns:\n    List of code system.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "code-systems",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "092aff0c-0a20-4f05-944a-96a4cb351def",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "code-systems",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"dbdd5cb5-9677-a60f-f228-a09e4a47180c\",\n    \"key\": \"string\",\n    \"display_name\": \"string\",\n    \"oid\": \"string\"\n  },\n  {\n    \"id\": \"c80eca68-c7eb-a605-37f5-a598c4d203c2\",\n    \"key\": \"string\",\n    \"display_name\": \"string\",\n    \"oid\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "9949553d-2336-42bf-ab0d-fcb02b3b6b8d",
+    "name": "DIBBs eCR Refiner app-notifications code-systems API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Please visit the repo for more info: https://github.com/CDCgov/dibbs-ecr-refiner",
+      "type": "text/plain"
+    }
+  }
+}

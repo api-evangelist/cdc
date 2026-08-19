@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DIBBs eCR Refiner app-notifications releases API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "releases",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Releases Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/releases/"
+          },
+          "docs": "Hook to get release data from GitHub and serve it to the frontend.\n\nReturns:\n    ReleasesResponse: Reponse of release information in a list of ReleaseMetadata"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

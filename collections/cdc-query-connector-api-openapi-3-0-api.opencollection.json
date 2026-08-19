@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DIBBs eCR Refiner app-notifications Query Connector API OpenAPI 3.0 API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Query Connector API OpenAPI 3.0",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GET /api",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api"
+          },
+          "docs": "Returns the health status of the API"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

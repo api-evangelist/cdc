@@ -1,0 +1,499 @@
+{
+  "item": [
+    {
+      "id": "04e9dd53-c09a-4885-a71c-4fb1da3eada4",
+      "name": "Query",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3a03cee4-3a51-40d4-b7d2-3e6b135e2a34",
+          "name": "A POST endpoint that accepts a FHIR patient resource or an HL7v2 message in the request body to execute a query within the Query Connector",
+          "request": {
+            "name": "A POST endpoint that accepts a FHIR patient resource or an HL7v2 message in the request body to execute a query within the Query Connector",
+            "description": {
+              "content": "A POST endpoint that accepts a FHIR patient resource or an HL7v2 message in the request body to execute a query within the Query Connector",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "query"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fhir_server",
+                  "value": "<string>",
+                  "description": "(Required) Name of the FHIR server to query"
+                },
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the query to use"
+                },
+                {
+                  "disabled": false,
+                  "key": "message_format",
+                  "value": "<string>",
+                  "description": "Whether the request body contents are HL7 or FHIR formatted messages"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a62260b7-39c3-45c2-9e9c-da13be5ce07b",
+              "name": "The FHIR resources returned that match the information configured in the query referenced",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fhir_server",
+                      "value": "HELIOS Meld: Direct"
+                    },
+                    {
+                      "key": "id",
+                      "value": "cf580d8d-cc7b-4eae-8a0d-96c36f9222e3"
+                    },
+                    {
+                      "key": "message_format",
+                      "value": "FHIR"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceType\": \"Patient\",\n  \"id\": \"1C\",\n  \"meta\": {\n    \"versionId\": \"1\",\n    \"lastUpdated\": \"2024-01-16T15:08:24.000+00:00\",\n    \"source\": \"#Aolu2ZnQyoelPvRd\",\n    \"profile\": [\n      \"http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient\"\n    ]\n  },\n  \"text\": {\n    \"status\": \"generated\",\n    \"div\": \"<div xmlns=\\\"http://www.w3.org/1999/xhtml\\\">This is a simple narrative with only plain text</div>\"\n  },\n  \"extension\": [\n    {\n      \"url\": \"http://hl7.org/fhir/us/core/StructureDefinition/us-core-race\",\n      \"extension\": [\n        {\n          \"url\": \"ombCategory\",\n          \"valueCoding\": {\n            \"system\": \"urn:oid:2.16.840.1.113883.6.238\",\n            \"code\": \"2106-3\",\n            \"display\": \"White\"\n          }\n        },\n        {\n          \"url\": \"text\",\n          \"valueString\": \"Mixed\"\n        }\n      ]\n    },\n    {\n      \"url\": \"http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity\",\n      \"extension\": [\n        {\n          \"url\": \"ombCategory\",\n          \"valueCoding\": {\n            \"system\": \"urn:oid:2.16.840.1.113883.6.238\",\n            \"code\": \"2135-2\",\n            \"display\": \"Hispanic or Latino\"\n          }\n        },\n        {\n          \"url\": \"text\",\n          \"valueString\": \"Hispanic or Latino\"\n        }\n      ]\n    }\n  ],\n  \"identifier\": [\n    {\n      \"use\": \"usual\",\n      \"type\": {\n        \"coding\": [\n          {\n            \"system\": \"http://terminology.hl7.org/CodeSystem/v2-0203\",\n            \"code\": \"MR\",\n            \"display\": \"Medical Record Number\"\n          }\n        ],\n        \"text\": \"Medical Record Number\"\n      },\n      \"system\": \"http://hospital.smarthealthit.org\",\n      \"value\": \"8692756\"\n    }\n  ],\n  \"active\": true,\n  \"name\": [\n    {\n      \"family\": \"Shaw\",\n      \"given\": [\n        \"Lee\",\n        \"A.\"\n      ],\n      \"period\": {\n        \"start\": \"1975-12-06\",\n        \"end\": \"2020-01-22\"\n      }\n    },\n    {\n      \"family\": \"Shaw\",\n      \"given\": [\n        \"Lee\",\n        \"V.\"\n      ],\n      \"suffix\": [\n        \"MD\"\n      ],\n      \"period\": {\n        \"start\": \"2020-01-23\"\n      }\n    }\n  ],\n  \"telecom\": [\n    {\n      \"system\": \"phone\",\n      \"value\": \"517-425-1398\",\n      \"use\": \"home\"\n    },\n    {\n      \"system\": \"email\",\n      \"value\": \"lee.shaw@email.com\"\n    }\n  ],\n  \"gender\": \"male\",\n  \"birthDate\": \"1975-12-06\",\n  \"address\": [\n    {\n      \"line\": [\n        \"49 Meadow St\"\n      ],\n      \"city\": \"Lansing\",\n      \"state\": \"MI\",\n      \"postalCode\": \"48864\",\n      \"country\": \"US\",\n      \"period\": {\n        \"start\": \"2016-12-06\",\n        \"end\": \"2020-07-22\"\n      }\n    },\n    {\n      \"line\": [\n        \"183 Mountain View St\"\n      ],\n      \"city\": \"Lansing\",\n      \"state\": \"MI\",\n      \"postalCode\": \"48901\",\n      \"country\": \"US\",\n      \"period\": {\n        \"start\": \"2020-07-22\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f1a1298a-d24b-4386-b020-9f6608ba2f4c",
+              "name": "Missing patient identifiers",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fhir_server",
+                      "value": "HELIOS Meld: Direct"
+                    },
+                    {
+                      "key": "id",
+                      "value": "cf580d8d-cc7b-4eae-8a0d-96c36f9222e3"
+                    },
+                    {
+                      "key": "message_format",
+                      "value": "FHIR"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceType\": \"Patient\",\n  \"id\": \"1C\",\n  \"meta\": {\n    \"versionId\": \"1\",\n    \"lastUpdated\": \"2024-01-16T15:08:24.000+00:00\",\n    \"source\": \"#Aolu2ZnQyoelPvRd\",\n    \"profile\": [\n      \"http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient\"\n    ]\n  },\n  \"text\": {\n    \"status\": \"generated\",\n    \"div\": \"<div xmlns=\\\"http://www.w3.org/1999/xhtml\\\">This is a simple narrative with only plain text</div>\"\n  },\n  \"extension\": [\n    {\n      \"url\": \"http://hl7.org/fhir/us/core/StructureDefinition/us-core-race\",\n      \"extension\": [\n        {\n          \"url\": \"ombCategory\",\n          \"valueCoding\": {\n            \"system\": \"urn:oid:2.16.840.1.113883.6.238\",\n            \"code\": \"2106-3\",\n            \"display\": \"White\"\n          }\n        },\n        {\n          \"url\": \"text\",\n          \"valueString\": \"Mixed\"\n        }\n      ]\n    },\n    {\n      \"url\": \"http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity\",\n      \"extension\": [\n        {\n          \"url\": \"ombCategory\",\n          \"valueCoding\": {\n            \"system\": \"urn:oid:2.16.840.1.113883.6.238\",\n            \"code\": \"2135-2\",\n            \"display\": \"Hispanic or Latino\"\n          }\n        },\n        {\n          \"url\": \"text\",\n          \"valueString\": \"Hispanic or Latino\"\n        }\n      ]\n    }\n  ],\n  \"identifier\": [\n    {\n      \"use\": \"usual\",\n      \"type\": {\n        \"coding\": [\n          {\n            \"system\": \"http://terminology.hl7.org/CodeSystem/v2-0203\",\n            \"code\": \"MR\",\n            \"display\": \"Medical Record Number\"\n          }\n        ],\n        \"text\": \"Medical Record Number\"\n      },\n      \"system\": \"http://hospital.smarthealthit.org\",\n      \"value\": \"8692756\"\n    }\n  ],\n  \"active\": true,\n  \"name\": [\n    {\n      \"family\": \"Shaw\",\n      \"given\": [\n        \"Lee\",\n        \"A.\"\n      ],\n      \"period\": {\n        \"start\": \"1975-12-06\",\n        \"end\": \"2020-01-22\"\n      }\n    },\n    {\n      \"family\": \"Shaw\",\n      \"given\": [\n        \"Lee\",\n        \"V.\"\n      ],\n      \"suffix\": [\n        \"MD\"\n      ],\n      \"period\": {\n        \"start\": \"2020-01-23\"\n      }\n    }\n  ],\n  \"telecom\": [\n    {\n      \"system\": \"phone\",\n      \"value\": \"517-425-1398\",\n      \"use\": \"home\"\n    },\n    {\n      \"system\": \"email\",\n      \"value\": \"lee.shaw@email.com\"\n    }\n  ],\n  \"gender\": \"male\",\n  \"birthDate\": \"1975-12-06\",\n  \"address\": [\n    {\n      \"line\": [\n        \"49 Meadow St\"\n      ],\n      \"city\": \"Lansing\",\n      \"state\": \"MI\",\n      \"postalCode\": \"48864\",\n      \"country\": \"US\",\n      \"period\": {\n        \"start\": \"2016-12-06\",\n        \"end\": \"2020-07-22\"\n      }\n    },\n    {\n      \"line\": [\n        \"183 Mountain View St\"\n      ],\n      \"city\": \"Lansing\",\n      \"state\": \"MI\",\n      \"postalCode\": \"48901\",\n      \"country\": \"US\",\n      \"period\": {\n        \"start\": \"2020-07-22\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8dc85dca-b7f6-41f9-b0e4-0e676d9e0f31",
+              "name": "Something went wrong :(",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fhir_server",
+                      "value": "HELIOS Meld: Direct"
+                    },
+                    {
+                      "key": "id",
+                      "value": "cf580d8d-cc7b-4eae-8a0d-96c36f9222e3"
+                    },
+                    {
+                      "key": "message_format",
+                      "value": "FHIR"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceType\": \"Patient\",\n  \"id\": \"1C\",\n  \"meta\": {\n    \"versionId\": \"1\",\n    \"lastUpdated\": \"2024-01-16T15:08:24.000+00:00\",\n    \"source\": \"#Aolu2ZnQyoelPvRd\",\n    \"profile\": [\n      \"http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient\"\n    ]\n  },\n  \"text\": {\n    \"status\": \"generated\",\n    \"div\": \"<div xmlns=\\\"http://www.w3.org/1999/xhtml\\\">This is a simple narrative with only plain text</div>\"\n  },\n  \"extension\": [\n    {\n      \"url\": \"http://hl7.org/fhir/us/core/StructureDefinition/us-core-race\",\n      \"extension\": [\n        {\n          \"url\": \"ombCategory\",\n          \"valueCoding\": {\n            \"system\": \"urn:oid:2.16.840.1.113883.6.238\",\n            \"code\": \"2106-3\",\n            \"display\": \"White\"\n          }\n        },\n        {\n          \"url\": \"text\",\n          \"valueString\": \"Mixed\"\n        }\n      ]\n    },\n    {\n      \"url\": \"http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity\",\n      \"extension\": [\n        {\n          \"url\": \"ombCategory\",\n          \"valueCoding\": {\n            \"system\": \"urn:oid:2.16.840.1.113883.6.238\",\n            \"code\": \"2135-2\",\n            \"display\": \"Hispanic or Latino\"\n          }\n        },\n        {\n          \"url\": \"text\",\n          \"valueString\": \"Hispanic or Latino\"\n        }\n      ]\n    }\n  ],\n  \"identifier\": [\n    {\n      \"use\": \"usual\",\n      \"type\": {\n        \"coding\": [\n          {\n            \"system\": \"http://terminology.hl7.org/CodeSystem/v2-0203\",\n            \"code\": \"MR\",\n            \"display\": \"Medical Record Number\"\n          }\n        ],\n        \"text\": \"Medical Record Number\"\n      },\n      \"system\": \"http://hospital.smarthealthit.org\",\n      \"value\": \"8692756\"\n    }\n  ],\n  \"active\": true,\n  \"name\": [\n    {\n      \"family\": \"Shaw\",\n      \"given\": [\n        \"Lee\",\n        \"A.\"\n      ],\n      \"period\": {\n        \"start\": \"1975-12-06\",\n        \"end\": \"2020-01-22\"\n      }\n    },\n    {\n      \"family\": \"Shaw\",\n      \"given\": [\n        \"Lee\",\n        \"V.\"\n      ],\n      \"suffix\": [\n        \"MD\"\n      ],\n      \"period\": {\n        \"start\": \"2020-01-23\"\n      }\n    }\n  ],\n  \"telecom\": [\n    {\n      \"system\": \"phone\",\n      \"value\": \"517-425-1398\",\n      \"use\": \"home\"\n    },\n    {\n      \"system\": \"email\",\n      \"value\": \"lee.shaw@email.com\"\n    }\n  ],\n  \"gender\": \"male\",\n  \"birthDate\": \"1975-12-06\",\n  \"address\": [\n    {\n      \"line\": [\n        \"49 Meadow St\"\n      ],\n      \"city\": \"Lansing\",\n      \"state\": \"MI\",\n      \"postalCode\": \"48864\",\n      \"country\": \"US\",\n      \"period\": {\n        \"start\": \"2016-12-06\",\n        \"end\": \"2020-07-22\"\n      }\n    },\n    {\n      \"line\": [\n        \"183 Mountain View St\"\n      ],\n      \"city\": \"Lansing\",\n      \"state\": \"MI\",\n      \"postalCode\": \"48901\",\n      \"country\": \"US\",\n      \"period\": {\n        \"start\": \"2020-07-22\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b37bceba-f0c4-47c4-84ae-3a599a9cc5c9",
+          "name": "A GET endpoint that accepts a series of query parameters to execute a query within the Query Connector. At least one of the patient identifier params are required",
+          "request": {
+            "name": "A GET endpoint that accepts a series of query parameters to execute a query within the Query Connector. At least one of the patient identifier params are required",
+            "description": {
+              "content": "A GET endpoint that accepts a series of query parameters to execute a query within the Query Connector. At least one of the patient identifier params are required",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "query"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fhir_server",
+                  "value": "<string>",
+                  "description": "(Required) Name of the FHIR server to query"
+                },
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the query to use"
+                },
+                {
+                  "disabled": false,
+                  "key": "given",
+                  "value": "<string>",
+                  "description": "Patient given name. At least one of the patient identifier params are required"
+                },
+                {
+                  "disabled": false,
+                  "key": "family",
+                  "value": "<string>",
+                  "description": "Patient family name. At least one of the patient identifier params are required"
+                },
+                {
+                  "disabled": false,
+                  "key": "dob",
+                  "value": "<string>",
+                  "description": "Patient date of birth in YYYY-MM-DD format. At least one of the patient identifier params are required"
+                },
+                {
+                  "disabled": false,
+                  "key": "mrn",
+                  "value": "<string>",
+                  "description": "Patient medical record number. At least one of the patient identifier params are required"
+                },
+                {
+                  "disabled": false,
+                  "key": "phone",
+                  "value": "<string>",
+                  "description": "Patient phone number. At least one of the patient identifier params are required"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8554f618-e212-4834-ac55-3ca72c49c6ed",
+              "name": "The FHIR resources returned that match the information configured in the query referenced",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fhir_server",
+                      "value": "HELIOS Meld: Direct"
+                    },
+                    {
+                      "key": "id",
+                      "value": "cf580d8d-cc7b-4eae-8a0d-96c36f9222e3"
+                    },
+                    {
+                      "key": "given",
+                      "value": "Lee"
+                    },
+                    {
+                      "key": "family",
+                      "value": "Shaw"
+                    },
+                    {
+                      "key": "dob",
+                      "value": "1975-12-06"
+                    },
+                    {
+                      "key": "mrn",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "phone",
+                      "value": "517-425-1398"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8578d198-d13f-4cdb-b91d-38c6342945b1",
+              "name": "Missing patient identifiers",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fhir_server",
+                      "value": "HELIOS Meld: Direct"
+                    },
+                    {
+                      "key": "id",
+                      "value": "cf580d8d-cc7b-4eae-8a0d-96c36f9222e3"
+                    },
+                    {
+                      "key": "given",
+                      "value": "Lee"
+                    },
+                    {
+                      "key": "family",
+                      "value": "Shaw"
+                    },
+                    {
+                      "key": "dob",
+                      "value": "1975-12-06"
+                    },
+                    {
+                      "key": "mrn",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "phone",
+                      "value": "517-425-1398"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d5248ce6-2a57-446b-a4db-80fef6bac791",
+              "name": "Something went wrong :(",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fhir_server",
+                      "value": "HELIOS Meld: Direct"
+                    },
+                    {
+                      "key": "id",
+                      "value": "cf580d8d-cc7b-4eae-8a0d-96c36f9222e3"
+                    },
+                    {
+                      "key": "given",
+                      "value": "Lee"
+                    },
+                    {
+                      "key": "family",
+                      "value": "Shaw"
+                    },
+                    {
+                      "key": "dob",
+                      "value": "1975-12-06"
+                    },
+                    {
+                      "key": "mrn",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "phone",
+                      "value": "517-425-1398"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "84caa942-450a-42aa-96ab-410faa13ecd8",
+    "name": "DIBBs eCR Refiner app-notifications Query API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Please visit the repo for more info: https://github.com/CDCgov/dibbs-ecr-refiner",
+      "type": "text/plain"
+    }
+  }
+}

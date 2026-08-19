@@ -1,0 +1,47 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DIBBs eCR Refiner app-notifications conditions API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "conditions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Conditions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/conditions/"
+          },
+          "docs": "Fetches all available conditions from the database.\n\nArgs:\n    db (AsyncDatabaseConnection): Database connection.\n\nReturns:\n    list[Condition]: List of all conditions."
+        },
+        {
+          "info": {
+            "name": "Get Condition",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/conditions/:condition_id",
+            "params": [
+              {
+                "name": "condition_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns information about a given condition.\n\nArgs:\n    condition_id (UUID): ID of the condition\n    db (AsyncDatabaseConnection): Database connection.\n\nRaises:\n    HTTPException: 404 if no condition is found\n\nReturns:\n    GetCondition: Info about the condition"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
