@@ -155,6 +155,8 @@ apis:
   humanURL: https://data.cdc.gov
   baseURL: https://data.cdc.gov/resource
   tags:
+  - Conditions
+  tags_raw:
   - conditions
   properties:
   - type: OpenAPI
@@ -171,6 +173,8 @@ apis:
   humanURL: https://data.cdc.gov
   baseURL: https://data.cdc.gov/resource
   tags:
+  - Configurations
+  tags_raw:
   - configurations
   properties:
   - type: OpenAPI
@@ -187,6 +191,8 @@ apis:
   humanURL: https://data.cdc.gov
   baseURL: https://data.cdc.gov/resource
   tags:
+  - Event
+  tags_raw:
   - events
   properties:
   - type: OpenAPI
@@ -237,6 +243,8 @@ apis:
   humanURL: https://data.cdc.gov
   baseURL: https://data.cdc.gov/resource
   tags:
+  - Releases
+  tags_raw:
   - releases
   properties:
   - type: OpenAPI
@@ -253,6 +261,8 @@ apis:
   humanURL: https://data.cdc.gov
   baseURL: https://data.cdc.gov/resource
   tags:
+  - Simulator
+  tags_raw:
   - simulator
   properties:
   - type: OpenAPI
@@ -269,6 +279,8 @@ apis:
   humanURL: https://data.cdc.gov
   baseURL: https://data.cdc.gov/resource
   tags:
+  - User
+  tags_raw:
   - user
   properties:
   - type: OpenAPI
