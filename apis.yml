@@ -185,7 +185,7 @@ apis:
   humanURL: https://data.cdc.gov
   baseURL: https://data.cdc.gov/resource
   tags:
-  - Configurations
+  - configurations
   tags_raw:
   - configurations
   properties:
@@ -255,7 +255,7 @@ apis:
   humanURL: https://data.cdc.gov
   baseURL: https://data.cdc.gov/resource
   tags:
-  - Releases
+  - releases
   tags_raw:
   - releases
   properties:
@@ -273,7 +273,7 @@ apis:
   humanURL: https://data.cdc.gov
   baseURL: https://data.cdc.gov/resource
   tags:
-  - Simulator
+  - simulator
   tags_raw:
   - simulator
   properties:
