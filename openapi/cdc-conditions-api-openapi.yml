@@ -1,17 +1,27 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: DIBBs eCR Refiner app-notifications conditions API
+  title: DIBBs eCR Refiner Conditions API
   description: 'Please visit the repo for more info: https://github.com/CDCgov/dibbs-ecr-refiner'
   version: 1.0.0
 tags:
-- name: conditions
+- name: Conditions
 paths:
   /api/v1/conditions/:
     get:
       tags:
-      - conditions
+      - Conditions
       summary: Get Conditions
-      description: "Fetches all available conditions from the database.\n\nArgs:\n    db (AsyncDatabaseConnection): Database connection.\n\nReturns:\n    list[Condition]: List of all conditions."
+      description: 'Fetches all available conditions from the database.
+
+
+        Args:
+
+        db (AsyncDatabaseConnection): Database connection.
+
+
+        Returns:
+
+        list[Condition]: List of all conditions.'
       operationId: getConditions
       responses:
         '200':
@@ -26,9 +36,26 @@ paths:
   /api/v1/conditions/{condition_id}:
     get:
       tags:
-      - conditions
+      - Conditions
       summary: Get Condition
-      description: "Returns information about a given condition.\n\nArgs:\n    condition_id (UUID): ID of the condition\n    db (AsyncDatabaseConnection): Database connection.\n\nRaises:\n    HTTPException: 404 if no condition is found\n\nReturns:\n    GetCondition: Info about the condition"
+      description: 'Returns information about a given condition.
+
+
+        Args:
+
+        condition_id (UUID): ID of the condition
+
+        db (AsyncDatabaseConnection): Database connection.
+
+
+        Raises:
+
+        HTTPException: 404 if no condition is found
+
+
+        Returns:
+
+        GetCondition: Info about the condition'
       operationId: getCondition
       parameters:
       - name: condition_id
@@ -53,111 +80,6 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
-    GetConditionCode:
-      properties:
-        code:
-          type: string
-          title: Code
-        system:
-          type: string
-          title: System
-        description:
-          type: string
-          title: Description
-      type: object
-      required:
-      - code
-      - system
-      - description
-      title: GetConditionCode
-      description: Model for a condition code.
-    CodeCategoryCompletenessStatus:
-      properties:
-        category:
-          type: string
-          title: Category
-        name:
-          type: string
-          title: Name
-        completeness:
-          $ref: '#/components/schemas/CodeCategoryStatus'
-      type: object
-      required:
-      - category
-      - name
-      - completeness
-      title: CodeCategoryCompletenessStatus
-      description: Code category completeness status model.
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-        input:
-          title: Input
-        ctx:
-          type: object
-          title: Context
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
-    CodeSetStatus:
-      type: string
-      enum:
-      - not expanded
-      - partially complete
-      - fully complete
-    CodeCategoryStatus:
-      type: string
-      enum:
-      - not included
-      - partially complete
-      - fully complete
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    CodeSystemsReponse:
-      properties:
-        id:
-          type: string
-          format: uuid
-          title: Id
-        key:
-          type: string
-          title: Key
-        display_name:
-          type: string
-          title: Display Name
-        oid:
-          type: string
-          title: Oid
-      type: object
-      required:
-      - id
-      - key
-      - display_name
-      - oid
-      title: CodeSystemsReponse
-      description: Display information needed for code system information on the frontend.
     GetConditionResponse:
       properties:
         id:
@@ -218,3 +140,108 @@ components:
       - display_name
       title: GetConditionsResponse
       description: Conditions response model.
+    CodeCategoryCompletenessStatus:
+      properties:
+        category:
+          type: string
+          title: Category
+        name:
+          type: string
+          title: Name
+        completeness:
+          $ref: '#/components/schemas/CodeCategoryStatus'
+      type: object
+      required:
+      - category
+      - name
+      - completeness
+      title: CodeCategoryCompletenessStatus
+      description: Code category completeness status model.
+    CodeSetStatus:
+      type: string
+      enum:
+      - not expanded
+      - partially complete
+      - fully complete
+    CodeCategoryStatus:
+      type: string
+      enum:
+      - not included
+      - partially complete
+      - fully complete
+    CodeSystemsReponse:
+      properties:
+        id:
+          type: string
+          format: uuid
+          title: Id
+        key:
+          type: string
+          title: Key
+        display_name:
+          type: string
+          title: Display Name
+        oid:
+          type: string
+          title: Oid
+      type: object
+      required:
+      - id
+      - key
+      - display_name
+      - oid
+      title: CodeSystemsReponse
+      description: Display information needed for code system information on the frontend.
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    GetConditionCode:
+      properties:
+        code:
+          type: string
+          title: Code
+        system:
+          type: string
+          title: System
+        description:
+          type: string
+          title: Description
+      type: object
+      required:
+      - code
+      - system
+      - description
+      title: GetConditionCode
+      description: Model for a condition code.

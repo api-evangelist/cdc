@@ -1,16 +1,8 @@
 {
   "provider": "cdc",
   "sources": [
-    "cdc-app-notifications-api-openapi.yml",
-    "cdc-code-systems-api-openapi.yml",
-    "cdc-conditions-api-openapi.yml",
-    "cdc-configurations-api-openapi.yml",
-    "cdc-events-api-openapi.yml",
-    "cdc-query-api-openapi.yml",
-    "cdc-query-connector-api-openapi-3-0-api-openapi.yml",
-    "cdc-releases-api-openapi.yml",
-    "cdc-simulator-api-openapi.yml",
-    "cdc-user-api-openapi.yml"
+    "_original/dibbs-ecr-refiner-openapi.json",
+    "_original/dibbs-query-connector-openapi.yaml"
   ],
   "outputs": [
     "cdc-app-notifications-api-openapi.yml",
@@ -18,15 +10,44 @@
     "cdc-conditions-api-openapi.yml",
     "cdc-configurations-api-openapi.yml",
     "cdc-events-api-openapi.yml",
-    "cdc-query-api-openapi.yml",
-    "cdc-query-connector-api-openapi-3-0-api-openapi.yml",
     "cdc-releases-api-openapi.yml",
     "cdc-simulator-api-openapi.yml",
-    "cdc-user-api-openapi.yml"
+    "cdc-user-api-openapi.yml",
+    "cdc-query-api-openapi.yml",
+    "cdc-query-connector-api-openapi-3-0-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (2 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "dibbs-ecr-refiner-openapi.json: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "dibbs-ecr-refiner-openapi.json: declared missing tag: app-notifications",
+    "dibbs-ecr-refiner-openapi.json: declared missing tag: code-systems",
+    "dibbs-ecr-refiner-openapi.json: declared missing tag: conditions",
+    "dibbs-ecr-refiner-openapi.json: declared missing tag: configurations",
+    "dibbs-ecr-refiner-openapi.json: declared missing tag: events",
+    "dibbs-ecr-refiner-openapi.json: declared missing tag: releases",
+    "dibbs-ecr-refiner-openapi.json: declared missing tag: simulator",
+    "dibbs-ecr-refiner-openapi.json: declared missing tag: user",
+    "dibbs-query-connector-openapi.yaml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "dibbs-query-connector-openapi.yaml: tagged paths GET /api -> Query Connector API OpenAPI 3.0",
+    "dibbs-query-connector-openapi.yaml: tagged paths POST /api/query -> Query",
+    "dibbs-query-connector-openapi.yaml: tagged paths GET /api/query -> Query",
+    "dibbs-query-connector-openapi.yaml: declared missing tag: Query",
+    "dibbs-query-connector-openapi.yaml: declared missing tag: Query Connector API OpenAPI 3.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "cdc-app-notifications-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "cdc-code-systems-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "cdc-conditions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "cdc-configurations-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "cdc-events-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "cdc-query-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "cdc-query-connector-api-openapi-3-0-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "cdc-releases-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "cdc-simulator-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "cdc-user-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

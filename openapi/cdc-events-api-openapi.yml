@@ -1,17 +1,41 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: DIBBs eCR Refiner app-notifications events API
+  title: DIBBs eCR Refiner Events API
   description: 'Please visit the repo for more info: https://github.com/CDCgov/dibbs-ecr-refiner'
   version: 1.0.0
 tags:
-- name: events
+- name: Events
 paths:
   /api/v1/events/:
     get:
       tags:
-      - events
+      - Events
       summary: Get Events
-      description: "Returns a list of all events for a jurisdiction, ordered from newest to oldest.\n\nArgs:\n    user (DbUser): The user making the request.\n    db (AsyncDatabaseConnection): Database connection.\n    logger (Logger): Standard logger.\n    page (int): page of events to return to the client.\n    canonical_url (str | None): An optional filter on the condition.\n\nReturns:\n    EventResponse: A bundle with\n        - Total page count\n        - The list of AuditEvents relevant for the (optional) filter\n        - The list of condition information with potentially filter-able data"
+      description: 'Returns a list of all events for a jurisdiction, ordered from newest to oldest.
+
+
+        Args:
+
+        user (DbUser): The user making the request.
+
+        db (AsyncDatabaseConnection): Database connection.
+
+        logger (Logger): Standard logger.
+
+        page (int): page of events to return to the client.
+
+        canonical_url (str | None): An optional filter on the condition.
+
+
+        Returns:
+
+        EventResponse: A bundle with
+
+        - Total page count
+
+        - The list of AuditEvents relevant for the (optional) filter
+
+        - The list of condition information with potentially filter-able data'
       operationId: getEvents
       parameters:
       - name: page
@@ -45,9 +69,23 @@ paths:
   /api/v1/events/{event_id}/custom-code-uploads:
     get:
       tags:
-      - events
+      - Events
       summary: Get Custom Code Upload Events
-      description: "Returns a list of all custom code upload events associated with a parent event ID.\n\nArgs:\n    event_id (UUID): The parent event\n    user (DbUser): The logged in user\n    db (AsyncDatabaseConnection): The database connection\n\nRaises:\n    HTTPException: 404 if event with requested ID is not found or does not belong to user's jurisdiction"
+      description: 'Returns a list of all custom code upload events associated with a parent event ID.
+
+
+        Args:
+
+        event_id (UUID): The parent event
+
+        user (DbUser): The logged in user
+
+        db (AsyncDatabaseConnection): The database connection
+
+
+        Raises:
+
+        HTTPException: 404 if event with requested ID is not found or does not belong to user''s jurisdiction'
       operationId: getCustomCodeUploadEvents
       parameters:
       - name: event_id
@@ -75,83 +113,6 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
-    CustomCodeUploadEventResponse:
-      properties:
-        id:
-          type: string
-          format: uuid
-          title: Id
-        system_display_name:
-          type: string
-          title: System Display Name
-        code:
-          type: string
-          title: Code
-        name:
-          type: string
-          title: Name
-      type: object
-      required:
-      - id
-      - system_display_name
-      - code
-      - name
-      title: CustomCodeUploadEventResponse
-      description: Response model for a custom code upload event.
-    EventFilterOption:
-      properties:
-        id:
-          type: string
-          format: uuid
-          title: Id
-        name:
-          type: string
-          title: Name
-        canonical_url:
-          type: string
-          title: Canonical Url
-      type: object
-      required:
-      - id
-      - name
-      - canonical_url
-      title: EventFilterOption
-      description: Conditions returned to the user to be used for filtering events.
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-        input:
-          title: Input
-        ctx:
-          type: object
-          title: Context
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
     AuditEvent:
       properties:
         id:
@@ -193,6 +154,83 @@ components:
       - has_custom_code_upload_events
       title: AuditEvent
       description: An event returned by the DB function.
+    EventFilterOption:
+      properties:
+        id:
+          type: string
+          format: uuid
+          title: Id
+        name:
+          type: string
+          title: Name
+        canonical_url:
+          type: string
+          title: Canonical Url
+      type: object
+      required:
+      - id
+      - name
+      - canonical_url
+      title: EventFilterOption
+      description: Conditions returned to the user to be used for filtering events.
+    CustomCodeUploadEventResponse:
+      properties:
+        id:
+          type: string
+          format: uuid
+          title: Id
+        system_display_name:
+          type: string
+          title: System Display Name
+        code:
+          type: string
+          title: Code
+        name:
+          type: string
+          title: Name
+      type: object
+      required:
+      - id
+      - system_display_name
+      - code
+      - name
+      title: CustomCodeUploadEventResponse
+      description: Response model for a custom code upload event.
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
     EventsResponse:
       properties:
         audit_events:

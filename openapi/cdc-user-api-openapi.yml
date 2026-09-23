@@ -1,17 +1,30 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: DIBBs eCR Refiner app-notifications user API
+  title: DIBBs eCR Refiner User API
   description: 'Please visit the repo for more info: https://github.com/CDCgov/dibbs-ecr-refiner'
   version: 1.0.0
 tags:
-- name: user
+- name: User
 paths:
   /api/user:
     get:
       tags:
-      - user
+      - User
       summary: Get User
-      description: "Returns the current logged-in user's information.\n\nReads user info from the session or token.\n\nReturns:\n    JSON object with user claims if authenticated.\n\nRaises:\n    HTTPException 401 if user not authenticated."
+      description: 'Returns the current logged-in user''s information.
+
+
+        Reads user info from the session or token.
+
+
+        Returns:
+
+        JSON object with user claims if authenticated.
+
+
+        Raises:
+
+        HTTPException 401 if user not authenticated.'
       operationId: getUser
       responses:
         '200':
@@ -25,26 +38,6 @@ paths:
                 title: Response Getuser
 components:
   schemas:
-    NotificationKeys:
-      type: string
-      enum:
-      - most_recent_app_update
-      title: NotificationKeys
-      description: Enum class to type the values of the notifications possible for actioning on the frontend.
-    NotificationsToRender:
-      properties:
-        to_render:
-          additionalProperties:
-            type: boolean
-          propertyNames:
-            $ref: '#/components/schemas/NotificationKeys'
-          type: object
-          title: To Render
-      type: object
-      required:
-      - to_render
-      title: NotificationsToRender
-      description: Map of booleans for each of the notificaiton keys as to whether to render frontend banners.
     UserResponse:
       properties:
         id:
@@ -67,3 +60,23 @@ components:
       - notifications
       title: UserResponse
       description: User information to send to the client.
+    NotificationKeys:
+      type: string
+      enum:
+      - most_recent_app_update
+      title: NotificationKeys
+      description: Enum class to type the values of the notifications possible for actioning on the frontend.
+    NotificationsToRender:
+      properties:
+        to_render:
+          additionalProperties:
+            type: boolean
+          propertyNames:
+            $ref: '#/components/schemas/NotificationKeys'
+          type: object
+          title: To Render
+      type: object
+      required:
+      - to_render
+      title: NotificationsToRender
+      description: Map of booleans for each of the notificaiton keys as to whether to render frontend banners.

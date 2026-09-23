@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: DIBBs eCR Refiner app-notifications API
+  title: DIBBs eCR Refiner App Notifications API
   description: 'Please visit the repo for more info: https://github.com/CDCgov/dibbs-ecr-refiner'
   version: 1.0.0
 tags:
@@ -34,6 +34,43 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
+    UserResponse:
+      properties:
+        id:
+          type: string
+          format: uuid
+          title: Id
+        username:
+          type: string
+          title: Username
+        jurisdiction_id:
+          type: string
+          title: Jurisdiction Id
+        notifications:
+          $ref: '#/components/schemas/NotificationsToRender'
+      type: object
+      required:
+      - id
+      - username
+      - jurisdiction_id
+      - notifications
+      title: UserResponse
+      description: User information to send to the client.
+    UpdateUserNotificationsRequest:
+      properties:
+        key:
+          $ref: '#/components/schemas/NotificationKeys'
+      type: object
+      required:
+      - key
+      title: UpdateUserNotificationsRequest
+      description: Request to update notification acknowledgement state for the current user.
+    NotificationKeys:
+      type: string
+      enum:
+      - most_recent_app_update
+      title: NotificationKeys
+      description: Enum class to type the values of the notifications possible for actioning on the frontend.
     ValidationError:
       properties:
         loc:
@@ -60,15 +97,6 @@ components:
       - msg
       - type
       title: ValidationError
-    UpdateUserNotificationsRequest:
-      properties:
-        key:
-          $ref: '#/components/schemas/NotificationKeys'
-      type: object
-      required:
-      - key
-      title: UpdateUserNotificationsRequest
-      description: Request to update notification acknowledgement state for the current user.
     HTTPValidationError:
       properties:
         detail:
@@ -78,28 +106,6 @@ components:
           title: Detail
       type: object
       title: HTTPValidationError
-    UserResponse:
-      properties:
-        id:
-          type: string
-          format: uuid
-          title: Id
-        username:
-          type: string
-          title: Username
-        jurisdiction_id:
-          type: string
-          title: Jurisdiction Id
-        notifications:
-          $ref: '#/components/schemas/NotificationsToRender'
-      type: object
-      required:
-      - id
-      - username
-      - jurisdiction_id
-      - notifications
-      title: UserResponse
-      description: User information to send to the client.
     NotificationsToRender:
       properties:
         to_render:
@@ -114,9 +120,3 @@ components:
       - to_render
       title: NotificationsToRender
       description: Map of booleans for each of the notificaiton keys as to whether to render frontend banners.
-    NotificationKeys:
-      type: string
-      enum:
-      - most_recent_app_update
-      title: NotificationKeys
-      description: Enum class to type the values of the notifications possible for actioning on the frontend.

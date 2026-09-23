@@ -1,8 +1,7 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: DIBBs eCR Refiner app-notifications Query API
-  description: 'Please visit the repo for more info: https://github.com/CDCgov/dibbs-ecr-refiner'
   version: 1.0.0
+  title: Connector API - OpenAPI 3.0 Query API
 tags:
 - name: Query
 paths:
@@ -132,6 +131,10 @@ paths:
           description: Something went wrong :(
       tags:
       - Query
+      summary: Create api query
+      x-summary-source: derived
+      operationId: postApiQuery
+      x-operation-id-source: derived
     get:
       description: A GET endpoint that accepts a series of query parameters to execute a query within the Query Connector. At least one of the patient identifier params are required
       parameters:
@@ -188,3 +191,7 @@ paths:
           description: Something went wrong :(
       tags:
       - Query
+      summary: Get api query
+      x-summary-source: derived
+      operationId: getApiQuery
+      x-operation-id-source: derived

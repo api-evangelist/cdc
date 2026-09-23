@@ -1,17 +1,38 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: DIBBs eCR Refiner app-notifications simulator API
+  title: DIBBs eCR Refiner Simulator API
   description: 'Please visit the repo for more info: https://github.com/CDCgov/dibbs-ecr-refiner'
   version: 1.0.0
 tags:
-- name: simulator
+- name: Simulator
 paths:
   /api/v1/simulator/discover-configurations:
     post:
       tags:
-      - simulator
+      - Simulator
       summary: Discover Configurations
-      description: "Detects reportable conditions found in `uploaded_file` and matches them with existing configurations.\n\nConfigurations are returned to the client.\n\nArgs:\n    uploaded_file (UploadFile | None, optional): The eCR file package uploaded by the user.\n    simulator_zip_path (Path, optional): The path to the demo zip file.\n    user (DbUser, optional): The logged in user.\n    db (AsyncDatabaseConnection, optional): The database connection.\n    logger (Logger, optional): The app logger.\n\nReturns:\n    DiscoveredConfigurationsResponse: Matching configurations, grouped by condition."
+      description: 'Detects reportable conditions found in `uploaded_file` and matches them with existing configurations.
+
+
+        Configurations are returned to the client.
+
+
+        Args:
+
+        uploaded_file (UploadFile | None, optional): The eCR file package uploaded by the user.
+
+        simulator_zip_path (Path, optional): The path to the demo zip file.
+
+        user (DbUser, optional): The logged in user.
+
+        db (AsyncDatabaseConnection, optional): The database connection.
+
+        logger (Logger, optional): The app logger.
+
+
+        Returns:
+
+        DiscoveredConfigurationsResponse: Matching configurations, grouped by condition.'
       operationId: discoverConfigurations
       requestBody:
         content:
@@ -34,9 +55,37 @@ paths:
   /api/v1/simulator/upload:
     post:
       tags:
-      - simulator
+      - Simulator
       summary: Simulator Upload
-      description: "Handles the simulator upload workflow for eICR refinement.\n\nSteps:\n1. Obtain the simulator eICR ZIP file (either uploaded by user or from local sample in\n    refiner/assets/demo/mon-mothma-covid-influenza.zip).\n2. Read and validate the XML files (eICR and RR) from the ZIP (XMLFiles object).\n3. Call the service layer (`simulator`) to orchestrate the refinement workflow.\n4. For each unique reportable condition code found in the RR (and having a configuration),\n    build a refined XML document and collect metadata. The code used is the actual code\n    from the RR that triggered the match, not a canonical or database code.\n5. Package all refined and original files into a ZIP.\n6. Upload the ZIP to S3 and get a download URL.\n7. Construct and return the response model for the frontend, including per-condition\n    refinement results and a link to the ZIP of outputs.\n\nAny exceptions during file processing or workflow execution are caught and mapped to HTTP errors."
+      description: 'Handles the simulator upload workflow for eICR refinement.
+
+
+        Steps:
+
+        1. Obtain the simulator eICR ZIP file (either uploaded by user or from local sample in
+
+        refiner/assets/demo/mon-mothma-covid-influenza.zip).
+
+        2. Read and validate the XML files (eICR and RR) from the ZIP (XMLFiles object).
+
+        3. Call the service layer (`simulator`) to orchestrate the refinement workflow.
+
+        4. For each unique reportable condition code found in the RR (and having a configuration),
+
+        build a refined XML document and collect metadata. The code used is the actual code
+
+        from the RR that triggered the match, not a canonical or database code.
+
+        5. Package all refined and original files into a ZIP.
+
+        6. Upload the ZIP to S3 and get a download URL.
+
+        7. Construct and return the response model for the frontend, including per-condition
+
+        refinement results and a link to the ZIP of outputs.
+
+
+        Any exceptions during file processing or workflow execution are caught and mapped to HTTP errors.'
       operationId: uploadEcr
       requestBody:
         content:
@@ -60,12 +109,12 @@ paths:
   /api/v1/simulator/download/{filename}:
     get:
       tags:
-      - simulator
+      - Simulator
       summary: Download Refined Ecr
       description: 'Stream refined eCR zip from S3 by filename.
 
 
-        The client provides only the filename (e.g. `<uuid>_refined_ecr.zip`). The
+        The client provides only the filename (e.g. `_refined_ecr.zip`). The
 
         server constructs the S3 object key based on the authenticated user.'
       operationId: downloadRefinedEcr
@@ -105,53 +154,6 @@ components:
       required:
       - body
       title: Body_uploadEcr
-    DiscoveredConfigurationsResponse:
-      properties:
-        sets:
-          items:
-            $ref: '#/components/schemas/DiscoveredConfigurationSet'
-          type: array
-          title: Sets
-      type: object
-      required:
-      - sets
-      title: DiscoveredConfigurationsResponse
-      description: Model to represent the sets of discovered configurations to return to the client.
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-        input:
-          title: Input
-        ctx:
-          type: object
-          title: Context
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
     Condition:
       properties:
         code:
@@ -180,6 +182,84 @@ components:
       - render_diff
       title: Condition
       description: Model for a Condition.
+    Body_discoverConfigurations:
+      properties:
+        uploaded_file:
+          anyOf:
+          - type: string
+            contentMediaType: application/octet-stream
+          - type: 'null'
+          title: Uploaded File
+      type: object
+      title: Body_discoverConfigurations
+    FileInfoResponse:
+      properties:
+        max_for_diff_rendering_mb:
+          type: integer
+          const: 2
+          title: Max For Diff Rendering Mb
+          default: 2
+        max_for_uncompressed_mb:
+          type: integer
+          const: 15
+          title: Max For Uncompressed Mb
+          default: 15
+      type: object
+      title: FileInfoResponse
+      description: Utility class to help Orval ship these values to the frontend.
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    DbConfigurationStatus:
+      type: string
+      enum:
+      - draft
+      - inactive
+      - active
+    DiscoveredConfigurationsResponse:
+      properties:
+        sets:
+          items:
+            $ref: '#/components/schemas/DiscoveredConfigurationSet'
+          type: array
+          title: Sets
+      type: object
+      required:
+      - sets
+      title: DiscoveredConfigurationsResponse
+      description: Model to represent the sets of discovered configurations to return to the client.
     DiscoveredConfigurationSet:
       properties:
         name:
@@ -201,37 +281,6 @@ components:
       - versions
       title: DiscoveredConfigurationSet
       description: Model to represent a set of discovered configurations.
-    FileInfoResponse:
-      properties:
-        max_for_diff_rendering_mb:
-          type: integer
-          const: 2
-          title: Max For Diff Rendering Mb
-          default: 2
-        max_for_uncompressed_mb:
-          type: integer
-          const: 15
-          title: Max For Uncompressed Mb
-          default: 15
-      type: object
-      title: FileInfoResponse
-      description: Utility class to help Orval ship these values to the frontend.
-    Body_discoverConfigurations:
-      properties:
-        uploaded_file:
-          anyOf:
-          - type: string
-            contentMediaType: application/octet-stream
-          - type: 'null'
-          title: Uploaded File
-      type: object
-      title: Body_discoverConfigurations
-    DbConfigurationStatus:
-      type: string
-      enum:
-      - draft
-      - inactive
-      - active
     DiscoveredConfigurationVersion:
       properties:
         id:
