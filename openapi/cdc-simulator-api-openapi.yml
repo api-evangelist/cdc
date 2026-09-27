@@ -139,21 +139,111 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
-    Body_uploadEcr:
+    FileInfoResponse:
       properties:
-        body:
-          type: string
-          title: Body
-        uploaded_file:
-          anyOf:
-          - type: string
-            contentMediaType: application/octet-stream
-          - type: 'null'
-          title: Uploaded File
+        max_for_diff_rendering_mb:
+          type: integer
+          const: 2
+          title: Max For Diff Rendering Mb
+          default: 2
+        max_for_uncompressed_mb:
+          type: integer
+          const: 15
+          title: Max For Uncompressed Mb
+          default: 15
+      type: object
+      title: FileInfoResponse
+      description: Utility class to help Orval ship these values to the frontend.
+    DiscoveredConfigurationsResponse:
+      properties:
+        sets:
+          items:
+            $ref: '#/components/schemas/DiscoveredConfigurationSet'
+          type: array
+          title: Sets
       type: object
       required:
-      - body
-      title: Body_uploadEcr
+      - sets
+      title: DiscoveredConfigurationsResponse
+      description: Model to represent the sets of discovered configurations to return to the client.
+    DiscoveredConfigurationSet:
+      properties:
+        name:
+          type: string
+          title: Name
+        condition_id:
+          type: string
+          format: uuid
+          title: Condition Id
+        versions:
+          items:
+            $ref: '#/components/schemas/DiscoveredConfigurationVersion'
+          type: array
+          title: Versions
+      type: object
+      required:
+      - name
+      - condition_id
+      - versions
+      title: DiscoveredConfigurationSet
+      description: Model to represent a set of discovered configurations.
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    SimulatorUploadResponse:
+      properties:
+        message:
+          type: string
+          title: Message
+        refined_conditions_found:
+          type: integer
+          title: Refined Conditions Found
+        refined_conditions:
+          items:
+            $ref: '#/components/schemas/Condition'
+          type: array
+          title: Refined Conditions
+        unrefined_eicr:
+          type: string
+          title: Unrefined Eicr
+        refined_download_key:
+          type: string
+          title: Refined Download Key
+        file_info_response:
+          $ref: '#/components/schemas/FileInfoResponse'
+      type: object
+      required:
+      - message
+      - refined_conditions_found
+      - refined_conditions
+      - unrefined_eicr
+      - refined_download_key
+      - file_info_response
+      title: SimulatorUploadResponse
+      description: Model for the response when uploading a document in the simulate testing suite.
     Condition:
       properties:
         code:
@@ -192,95 +282,12 @@ components:
           title: Uploaded File
       type: object
       title: Body_discoverConfigurations
-    FileInfoResponse:
-      properties:
-        max_for_diff_rendering_mb:
-          type: integer
-          const: 2
-          title: Max For Diff Rendering Mb
-          default: 2
-        max_for_uncompressed_mb:
-          type: integer
-          const: 15
-          title: Max For Uncompressed Mb
-          default: 15
-      type: object
-      title: FileInfoResponse
-      description: Utility class to help Orval ship these values to the frontend.
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-        input:
-          title: Input
-        ctx:
-          type: object
-          title: Context
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
     DbConfigurationStatus:
       type: string
       enum:
       - draft
       - inactive
       - active
-    DiscoveredConfigurationsResponse:
-      properties:
-        sets:
-          items:
-            $ref: '#/components/schemas/DiscoveredConfigurationSet'
-          type: array
-          title: Sets
-      type: object
-      required:
-      - sets
-      title: DiscoveredConfigurationsResponse
-      description: Model to represent the sets of discovered configurations to return to the client.
-    DiscoveredConfigurationSet:
-      properties:
-        name:
-          type: string
-          title: Name
-        condition_id:
-          type: string
-          format: uuid
-          title: Condition Id
-        versions:
-          items:
-            $ref: '#/components/schemas/DiscoveredConfigurationVersion'
-          type: array
-          title: Versions
-      type: object
-      required:
-      - name
-      - condition_id
-      - versions
-      title: DiscoveredConfigurationSet
-      description: Model to represent a set of discovered configurations.
     DiscoveredConfigurationVersion:
       properties:
         id:
@@ -299,34 +306,27 @@ components:
       - status
       title: DiscoveredConfigurationVersion
       description: Model to represent individual discovered configurations.
-    SimulatorUploadResponse:
+    HTTPValidationError:
       properties:
-        message:
-          type: string
-          title: Message
-        refined_conditions_found:
-          type: integer
-          title: Refined Conditions Found
-        refined_conditions:
+        detail:
           items:
-            $ref: '#/components/schemas/Condition'
+            $ref: '#/components/schemas/ValidationError'
           type: array
-          title: Refined Conditions
-        unrefined_eicr:
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    Body_uploadEcr:
+      properties:
+        body:
           type: string
-          title: Unrefined Eicr
-        refined_download_key:
-          type: string
-          title: Refined Download Key
-        file_info_response:
-          $ref: '#/components/schemas/FileInfoResponse'
+          title: Body
+        uploaded_file:
+          anyOf:
+          - type: string
+            contentMediaType: application/octet-stream
+          - type: 'null'
+          title: Uploaded File
       type: object
       required:
-      - message
-      - refined_conditions_found
-      - refined_conditions
-      - unrefined_eicr
-      - refined_download_key
-      - file_info_response
-      title: SimulatorUploadResponse
-      description: Model for the response when uploading a document in the simulate testing suite.
+      - body
+      title: Body_uploadEcr

@@ -60,12 +60,6 @@ components:
       - notifications
       title: UserResponse
       description: User information to send to the client.
-    NotificationKeys:
-      type: string
-      enum:
-      - most_recent_app_update
-      title: NotificationKeys
-      description: Enum class to type the values of the notifications possible for actioning on the frontend.
     NotificationsToRender:
       properties:
         to_render:
@@ -80,3 +74,9 @@ components:
       - to_render
       title: NotificationsToRender
       description: Map of booleans for each of the notificaiton keys as to whether to render frontend banners.
+    NotificationKeys:
+      type: string
+      enum:
+      - most_recent_app_update
+      title: NotificationKeys
+      description: Enum class to type the values of the notifications possible for actioning on the frontend.

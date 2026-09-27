@@ -34,28 +34,20 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
-    UserResponse:
+    NotificationsToRender:
       properties:
-        id:
-          type: string
-          format: uuid
-          title: Id
-        username:
-          type: string
-          title: Username
-        jurisdiction_id:
-          type: string
-          title: Jurisdiction Id
-        notifications:
-          $ref: '#/components/schemas/NotificationsToRender'
+        to_render:
+          additionalProperties:
+            type: boolean
+          propertyNames:
+            $ref: '#/components/schemas/NotificationKeys'
+          type: object
+          title: To Render
       type: object
       required:
-      - id
-      - username
-      - jurisdiction_id
-      - notifications
-      title: UserResponse
-      description: User information to send to the client.
+      - to_render
+      title: NotificationsToRender
+      description: Map of booleans for each of the notificaiton keys as to whether to render frontend banners.
     UpdateUserNotificationsRequest:
       properties:
         key:
@@ -65,12 +57,6 @@ components:
       - key
       title: UpdateUserNotificationsRequest
       description: Request to update notification acknowledgement state for the current user.
-    NotificationKeys:
-      type: string
-      enum:
-      - most_recent_app_update
-      title: NotificationKeys
-      description: Enum class to type the values of the notifications possible for actioning on the frontend.
     ValidationError:
       properties:
         loc:
@@ -97,6 +83,34 @@ components:
       - msg
       - type
       title: ValidationError
+    NotificationKeys:
+      type: string
+      enum:
+      - most_recent_app_update
+      title: NotificationKeys
+      description: Enum class to type the values of the notifications possible for actioning on the frontend.
+    UserResponse:
+      properties:
+        id:
+          type: string
+          format: uuid
+          title: Id
+        username:
+          type: string
+          title: Username
+        jurisdiction_id:
+          type: string
+          title: Jurisdiction Id
+        notifications:
+          $ref: '#/components/schemas/NotificationsToRender'
+      type: object
+      required:
+      - id
+      - username
+      - jurisdiction_id
+      - notifications
+      title: UserResponse
+      description: User information to send to the client.
     HTTPValidationError:
       properties:
         detail:
@@ -106,17 +120,3 @@ components:
           title: Detail
       type: object
       title: HTTPValidationError
-    NotificationsToRender:
-      properties:
-        to_render:
-          additionalProperties:
-            type: boolean
-          propertyNames:
-            $ref: '#/components/schemas/NotificationKeys'
-          type: object
-          title: To Render
-      type: object
-      required:
-      - to_render
-      title: NotificationsToRender
-      description: Map of booleans for each of the notificaiton keys as to whether to render frontend banners.

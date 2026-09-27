@@ -130,7 +130,7 @@ apis:
   - FN: PHIN VADS Support
     email: phinvads@cdc.gov
 - aid: cdc:cdc-app-notifications-api
-  name: CDC app-notifications API
+  name: CDC App Notifications API
   description: The app-notifications API from CDC — 1 operation(s) for app-notifications.
   humanURL: https://data.cdc.gov
   baseURL: https://data.cdc.gov/resource
@@ -146,7 +146,7 @@ apis:
   - type: Documentation
     url: https://github.com/CDCgov/dibbs-query-connector
 - aid: cdc:cdc-code-systems-api
-  name: CDC code-systems API
+  name: CDC Code Systems API
   description: The code-systems API from CDC — 1 operation(s) for code-systems.
   humanURL: https://data.cdc.gov
   baseURL: https://data.cdc.gov/resource
@@ -162,7 +162,7 @@ apis:
   - type: Documentation
     url: https://github.com/CDCgov/dibbs-query-connector
 - aid: cdc:cdc-conditions-api
-  name: CDC conditions API
+  name: CDC Conditions API
   description: The conditions API from CDC — 2 operation(s) for conditions.
   humanURL: https://data.cdc.gov
   baseURL: https://data.cdc.gov/resource
@@ -180,7 +180,7 @@ apis:
   - type: Documentation
     url: https://github.com/CDCgov/dibbs-query-connector
 - aid: cdc:cdc-configurations-api
-  name: CDC configurations API
+  name: CDC Configurations API
   description: The configurations API from CDC — 15 operation(s) for configurations.
   humanURL: https://data.cdc.gov
   baseURL: https://data.cdc.gov/resource
@@ -198,7 +198,7 @@ apis:
   - type: Documentation
     url: https://github.com/CDCgov/dibbs-query-connector
 - aid: cdc:cdc-events-api
-  name: CDC events API
+  name: CDC Events API
   description: The events API from CDC — 2 operation(s) for events.
   humanURL: https://data.cdc.gov
   baseURL: https://data.cdc.gov/resource
@@ -250,7 +250,7 @@ apis:
   - type: Documentation
     url: https://github.com/CDCgov/dibbs-query-connector
 - aid: cdc:cdc-releases-api
-  name: CDC releases API
+  name: CDC Releases API
   description: The releases API from CDC — 1 operation(s) for releases.
   humanURL: https://data.cdc.gov
   baseURL: https://data.cdc.gov/resource
@@ -268,7 +268,7 @@ apis:
   - type: Documentation
     url: https://github.com/CDCgov/dibbs-query-connector
 - aid: cdc:cdc-simulator-api
-  name: CDC simulator API
+  name: CDC Simulator API
   description: The simulator API from CDC — 3 operation(s) for simulator.
   humanURL: https://data.cdc.gov
   baseURL: https://data.cdc.gov/resource
@@ -286,7 +286,7 @@ apis:
   - type: Documentation
     url: https://github.com/CDCgov/dibbs-query-connector
 - aid: cdc:cdc-user-api
-  name: CDC user API
+  name: CDC User API
   description: The user API from CDC — 1 operation(s) for user.
   humanURL: https://data.cdc.gov
   baseURL: https://data.cdc.gov/resource
