@@ -38,6 +38,20 @@ paths:
                 title: Response Getuser
 components:
   schemas:
+    NotificationsToRender:
+      properties:
+        to_render:
+          additionalProperties:
+            type: boolean
+          propertyNames:
+            $ref: '#/components/schemas/NotificationKeys'
+          type: object
+          title: To Render
+      type: object
+      required:
+      - to_render
+      title: NotificationsToRender
+      description: Map of booleans for each of the notificaiton keys as to whether to render frontend banners.
     UserResponse:
       properties:
         id:
@@ -60,20 +74,6 @@ components:
       - notifications
       title: UserResponse
       description: User information to send to the client.
-    NotificationsToRender:
-      properties:
-        to_render:
-          additionalProperties:
-            type: boolean
-          propertyNames:
-            $ref: '#/components/schemas/NotificationKeys'
-          type: object
-          title: To Render
-      type: object
-      required:
-      - to_render
-      title: NotificationsToRender
-      description: Map of booleans for each of the notificaiton keys as to whether to render frontend banners.
     NotificationKeys:
       type: string
       enum:

@@ -113,77 +113,6 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
-    CustomCodeUploadEventResponse:
-      properties:
-        id:
-          type: string
-          format: uuid
-          title: Id
-        system_display_name:
-          type: string
-          title: System Display Name
-        code:
-          type: string
-          title: Code
-        name:
-          type: string
-          title: Name
-      type: object
-      required:
-      - id
-      - system_display_name
-      - code
-      - name
-      title: CustomCodeUploadEventResponse
-      description: Response model for a custom code upload event.
-    EventsResponse:
-      properties:
-        audit_events:
-          items:
-            $ref: '#/components/schemas/AuditEvent'
-          type: array
-          title: Audit Events
-        configuration_options:
-          items:
-            $ref: '#/components/schemas/EventFilterOption'
-          type: array
-          title: Configuration Options
-        total_pages:
-          type: integer
-          title: Total Pages
-      type: object
-      required:
-      - audit_events
-      - configuration_options
-      - total_pages
-      title: EventsResponse
-      description: Response needed for the audit log page.
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-        input:
-          title: Input
-        ctx:
-          type: object
-          title: Context
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
     AuditEvent:
       properties:
         id:
@@ -225,6 +154,77 @@ components:
       - has_custom_code_upload_events
       title: AuditEvent
       description: An event returned by the DB function.
+    EventsResponse:
+      properties:
+        audit_events:
+          items:
+            $ref: '#/components/schemas/AuditEvent'
+          type: array
+          title: Audit Events
+        configuration_options:
+          items:
+            $ref: '#/components/schemas/EventFilterOption'
+          type: array
+          title: Configuration Options
+        total_pages:
+          type: integer
+          title: Total Pages
+      type: object
+      required:
+      - audit_events
+      - configuration_options
+      - total_pages
+      title: EventsResponse
+      description: Response needed for the audit log page.
+    CustomCodeUploadEventResponse:
+      properties:
+        id:
+          type: string
+          format: uuid
+          title: Id
+        system_display_name:
+          type: string
+          title: System Display Name
+        code:
+          type: string
+          title: Code
+        name:
+          type: string
+          title: Name
+      type: object
+      required:
+      - id
+      - system_display_name
+      - code
+      - name
+      title: CustomCodeUploadEventResponse
+      description: Response model for a custom code upload event.
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
     EventFilterOption:
       properties:
         id:
