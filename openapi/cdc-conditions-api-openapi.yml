@@ -80,86 +80,6 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
-    GetConditionsResponse:
-      properties:
-        id:
-          type: string
-          format: uuid
-          title: Id
-        display_name:
-          type: string
-          title: Display Name
-      type: object
-      required:
-      - id
-      - display_name
-      title: GetConditionsResponse
-      description: Conditions response model.
-    CodeSystemsReponse:
-      properties:
-        id:
-          type: string
-          format: uuid
-          title: Id
-        key:
-          type: string
-          title: Key
-        display_name:
-          type: string
-          title: Display Name
-        oid:
-          type: string
-          title: Oid
-      type: object
-      required:
-      - id
-      - key
-      - display_name
-      - oid
-      title: CodeSystemsReponse
-      description: Display information needed for code system information on the frontend.
-    CodeSetStatus:
-      type: string
-      enum:
-      - not expanded
-      - partially complete
-      - fully complete
-    CodeCategoryStatus:
-      type: string
-      enum:
-      - not included
-      - partially complete
-      - fully complete
-    GetConditionResponse:
-      properties:
-        id:
-          type: string
-          format: uuid
-          title: Id
-        display_name:
-          type: string
-          title: Display Name
-        completeness_status:
-          $ref: '#/components/schemas/CompletenessStatus'
-        codes:
-          items:
-            $ref: '#/components/schemas/GetConditionCode'
-          type: array
-          title: Codes
-        systems:
-          items:
-            $ref: '#/components/schemas/CodeSystemsReponse'
-          type: array
-          title: Systems
-      type: object
-      required:
-      - id
-      - display_name
-      - completeness_status
-      - codes
-      - systems
-      title: GetConditionResponse
-      description: Condition response model.
     ValidationError:
       properties:
         loc:
@@ -204,6 +124,72 @@ components:
       - description
       title: GetConditionCode
       description: Model for a condition code.
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    CodeCategoryStatus:
+      type: string
+      enum:
+      - not included
+      - partially complete
+      - fully complete
+    GetConditionResponse:
+      properties:
+        id:
+          type: string
+          format: uuid
+          title: Id
+        display_name:
+          type: string
+          title: Display Name
+        completeness_status:
+          $ref: '#/components/schemas/CompletenessStatus'
+        codes:
+          items:
+            $ref: '#/components/schemas/GetConditionCode'
+          type: array
+          title: Codes
+        systems:
+          items:
+            $ref: '#/components/schemas/CodeSystemsReponse'
+          type: array
+          title: Systems
+      type: object
+      required:
+      - id
+      - display_name
+      - completeness_status
+      - codes
+      - systems
+      title: GetConditionResponse
+      description: Condition response model.
+    GetConditionsResponse:
+      properties:
+        id:
+          type: string
+          format: uuid
+          title: Id
+        display_name:
+          type: string
+          title: Display Name
+      type: object
+      required:
+      - id
+      - display_name
+      title: GetConditionsResponse
+      description: Conditions response model.
+    CodeSetStatus:
+      type: string
+      enum:
+      - not expanded
+      - partially complete
+      - fully complete
     CompletenessStatus:
       properties:
         code_set_status:
@@ -219,6 +205,29 @@ components:
       - code_category_statuses
       title: CompletenessStatus
       description: Condition completeness status model.
+    CodeSystemsReponse:
+      properties:
+        id:
+          type: string
+          format: uuid
+          title: Id
+        key:
+          type: string
+          title: Key
+        display_name:
+          type: string
+          title: Display Name
+        oid:
+          type: string
+          title: Oid
+      type: object
+      required:
+      - id
+      - key
+      - display_name
+      - oid
+      title: CodeSystemsReponse
+      description: Display information needed for code system information on the frontend.
     CodeCategoryCompletenessStatus:
       properties:
         category:
@@ -236,12 +245,3 @@ components:
       - completeness
       title: CodeCategoryCompletenessStatus
       description: Code category completeness status model.
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError

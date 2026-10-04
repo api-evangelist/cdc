@@ -34,21 +34,6 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
-    UpdateUserNotificationsRequest:
-      properties:
-        key:
-          $ref: '#/components/schemas/NotificationKeys'
-      type: object
-      required:
-      - key
-      title: UpdateUserNotificationsRequest
-      description: Request to update notification acknowledgement state for the current user.
-    NotificationKeys:
-      type: string
-      enum:
-      - most_recent_app_update
-      title: NotificationKeys
-      description: Enum class to type the values of the notifications possible for actioning on the frontend.
     ValidationError:
       properties:
         loc:
@@ -75,6 +60,15 @@ components:
       - msg
       - type
       title: ValidationError
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
     NotificationsToRender:
       properties:
         to_render:
@@ -89,6 +83,12 @@ components:
       - to_render
       title: NotificationsToRender
       description: Map of booleans for each of the notificaiton keys as to whether to render frontend banners.
+    NotificationKeys:
+      type: string
+      enum:
+      - most_recent_app_update
+      title: NotificationKeys
+      description: Enum class to type the values of the notifications possible for actioning on the frontend.
     UserResponse:
       properties:
         id:
@@ -111,12 +111,12 @@ components:
       - notifications
       title: UserResponse
       description: User information to send to the client.
-    HTTPValidationError:
+    UpdateUserNotificationsRequest:
       properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
+        key:
+          $ref: '#/components/schemas/NotificationKeys'
       type: object
-      title: HTTPValidationError
+      required:
+      - key
+      title: UpdateUserNotificationsRequest
+      description: Request to update notification acknowledgement state for the current user.

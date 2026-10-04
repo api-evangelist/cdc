@@ -38,6 +38,12 @@ paths:
                 title: Response Getuser
 components:
   schemas:
+    NotificationKeys:
+      type: string
+      enum:
+      - most_recent_app_update
+      title: NotificationKeys
+      description: Enum class to type the values of the notifications possible for actioning on the frontend.
     NotificationsToRender:
       properties:
         to_render:
@@ -74,9 +80,3 @@ components:
       - notifications
       title: UserResponse
       description: User information to send to the client.
-    NotificationKeys:
-      type: string
-      enum:
-      - most_recent_app_update
-      title: NotificationKeys
-      description: Enum class to type the values of the notifications possible for actioning on the frontend.
