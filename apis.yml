@@ -1,4 +1,4 @@
-aid: cdc
+aid: cdc-gov
 name: CDC
 description: >-
   The US Centers for Disease Control and Prevention (CDC) provides a suite of
@@ -35,7 +35,7 @@ accessModel:
   generated: '2026-07-22'
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/cdc.png
-url: https://raw.githubusercontent.com/api-evangelist/cdc/refs/heads/main/apis.yml
+url: https://raw.githubusercontent.com/api-evangelist/cdc-gov/refs/heads/main/apis.yml
 created: "2026-06-13"
 modified: "2026-06-13"
 specificationVersion: '0.23'
@@ -49,6 +49,11 @@ tags:
   - Environmental Health
   - Mortality
   - CDC WONDER
+  - Epidemiology
+  - Federal Government
+  - Healthcare
+  - Socrata
+  - WONDER
 apis:
 - name: CDC WONDER API
   description: >-
@@ -129,7 +134,7 @@ apis:
   contact:
   - FN: PHIN VADS Support
     email: phinvads@cdc.gov
-- aid: cdc:cdc-app-notifications-api
+- aid: cdc-gov:cdc-gov-app-notifications-api
   name: CDC App Notifications API
   description: The app-notifications API from CDC — 1 operation(s) for app-notifications.
   humanURL: https://data.cdc.gov
@@ -145,7 +150,7 @@ apis:
     url: https://github.com/CDCgov/dibbs-ecr-refiner
   - type: Documentation
     url: https://github.com/CDCgov/dibbs-query-connector
-- aid: cdc:cdc-code-systems-api
+- aid: cdc-gov:cdc-gov-code-systems-api
   name: CDC Code Systems API
   description: The code-systems API from CDC — 1 operation(s) for code-systems.
   humanURL: https://data.cdc.gov
@@ -161,7 +166,7 @@ apis:
     url: https://github.com/CDCgov/dibbs-ecr-refiner
   - type: Documentation
     url: https://github.com/CDCgov/dibbs-query-connector
-- aid: cdc:cdc-conditions-api
+- aid: cdc-gov:cdc-gov-conditions-api
   name: CDC Conditions API
   description: The conditions API from CDC — 2 operation(s) for conditions.
   humanURL: https://data.cdc.gov
@@ -179,7 +184,7 @@ apis:
     url: https://github.com/CDCgov/dibbs-ecr-refiner
   - type: Documentation
     url: https://github.com/CDCgov/dibbs-query-connector
-- aid: cdc:cdc-configurations-api
+- aid: cdc-gov:cdc-gov-configurations-api
   name: CDC Configurations API
   description: The configurations API from CDC — 15 operation(s) for configurations.
   humanURL: https://data.cdc.gov
@@ -197,7 +202,7 @@ apis:
     url: https://github.com/CDCgov/dibbs-ecr-refiner
   - type: Documentation
     url: https://github.com/CDCgov/dibbs-query-connector
-- aid: cdc:cdc-events-api
+- aid: cdc-gov:cdc-gov-events-api
   name: CDC Events API
   description: The events API from CDC — 2 operation(s) for events.
   humanURL: https://data.cdc.gov
@@ -215,7 +220,7 @@ apis:
     url: https://github.com/CDCgov/dibbs-ecr-refiner
   - type: Documentation
     url: https://github.com/CDCgov/dibbs-query-connector
-- aid: cdc:cdc-query-api
+- aid: cdc-gov:cdc-gov-query-api
   name: CDC Query API
   description: The Query API from CDC — 1 operation(s) for query.
   humanURL: https://data.cdc.gov
@@ -231,7 +236,7 @@ apis:
     url: https://github.com/CDCgov/dibbs-ecr-refiner
   - type: Documentation
     url: https://github.com/CDCgov/dibbs-query-connector
-- aid: cdc:cdc-query-connector-api-openapi-3-0-api
+- aid: cdc-gov:cdc-gov-query-connector-api-openapi-3-0-api
   name: CDC Query Connector API OpenAPI 3.0 API
   description: >-
     The Query Connector API OpenAPI 3.0 API from CDC — 1 operation(s) for query connector api openapi
@@ -249,7 +254,7 @@ apis:
     url: https://github.com/CDCgov/dibbs-ecr-refiner
   - type: Documentation
     url: https://github.com/CDCgov/dibbs-query-connector
-- aid: cdc:cdc-releases-api
+- aid: cdc-gov:cdc-gov-releases-api
   name: CDC Releases API
   description: The releases API from CDC — 1 operation(s) for releases.
   humanURL: https://data.cdc.gov
@@ -267,7 +272,7 @@ apis:
     url: https://github.com/CDCgov/dibbs-ecr-refiner
   - type: Documentation
     url: https://github.com/CDCgov/dibbs-query-connector
-- aid: cdc:cdc-simulator-api
+- aid: cdc-gov:cdc-gov-simulator-api
   name: CDC Simulator API
   description: The simulator API from CDC — 3 operation(s) for simulator.
   humanURL: https://data.cdc.gov
@@ -285,7 +290,7 @@ apis:
     url: https://github.com/CDCgov/dibbs-ecr-refiner
   - type: Documentation
     url: https://github.com/CDCgov/dibbs-query-connector
-- aid: cdc:cdc-user-api
+- aid: cdc-gov:cdc-gov-user-api
   name: CDC User API
   description: The user API from CDC — 1 operation(s) for user.
   humanURL: https://data.cdc.gov
@@ -303,6 +308,43 @@ apis:
     url: https://github.com/CDCgov/dibbs-ecr-refiner
   - type: Documentation
     url: https://github.com/CDCgov/dibbs-query-connector
+- aid: cdc-gov:cdc-places-api
+  name: CDC PLACES / 500 Cities API
+  tags:
+  - BRFSS
+  - Census Tract
+  - Chronic Disease
+  - Health Indicators
+  - Small Area Estimation
+  humanURL: https://www.cdc.gov/places/
+  baseURL: https://chronicdata.cdc.gov/resource/
+  properties:
+  - url: https://www.cdc.gov/places/
+    type: Website
+  - url: https://www.cdc.gov/places/methodology/
+    type: Methodology
+  - url: https://chronicdata.cdc.gov/
+    type: OpenData
+  description: PLACES (Population Level Analysis and Community Estimates) provides model-based small-area
+    estimates for chronic disease risk factors, health outcomes, and prevention practices for counties,
+    ZCTAs, census tracts, and places across the United States. Data is available via the Socrata chronicdata.cdc.gov
+    portal as JSON, CSV, and GeoJSON endpoints.
+- aid: cdc-gov:cdc-tb-nndss-socrata
+  name: CDC NNDSS / MMWR Socrata Data
+  tags:
+  - MMWR
+  - NNDSS
+  - Notifiable Disease
+  - Surveillance
+  humanURL: https://data.cdc.gov/browse?category=NNDSS
+  properties:
+  - url: https://data.cdc.gov/browse?category=NNDSS
+    type: Catalog
+  - url: https://www.cdc.gov/nndss/
+    type: Program
+  description: The National Notifiable Diseases Surveillance System (NNDSS) and Morbidity and Mortality
+    Weekly Report (MMWR) tables are published as Socrata datasets on data.cdc.gov, providing weekly and
+    historical case counts for notifiable conditions accessible via SoQL and bulk download.
 common:
   - type: Plans
     url: plans/plans.yml
@@ -329,8 +371,12 @@ common:
   - type: Licensing
     url: https://www.cdc.gov/other/policies.html#linking
   - type: JSONLD
-    url: https://raw.githubusercontent.com/api-evangelist/cdc/refs/heads/main/json-ld/apis-jsonld.json
+    url: https://raw.githubusercontent.com/api-evangelist/cdc-gov/refs/heads/main/json-ld/apis-jsonld.json
 
+  - type: Documentation
+    url: https://tools.cdc.gov/api/docs/info.aspx
+  - type: APIReference
+    url: https://wonder.cdc.gov/wonder/help/wonder-api.html
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
